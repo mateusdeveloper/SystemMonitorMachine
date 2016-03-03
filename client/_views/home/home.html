@@ -1,0 +1,167 @@
+<!--================================================================================
+@file         home.html
+@version      0.0.1
+@path         client/_views/home
+@description  Renderiza a visão de home do sistema.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="home">
+  <div class="card mycard">
+    <div class="section">
+      <h5>Lista de Equipamentos</h5>
+      <div class="divider margin-bottom"></div>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <table id="data-table-home" class="striped responsive compact" cellspacing="0">
+            <thead>
+              <tr>
+                <!-- <th class="hide-on-small-only">EMPRESA</th> -->
+                <th>EQUIPAMENTO</th>
+                <th>ÚLTIMA ATUALIZAÇÃO</th>
+                <th>OPERAÇÃO</th>
+                {{#if isInRole 'SysAdm, Adm, Supervisor'}}
+                  <th class="verythin">HORÍMETRO</th>
+                  <th class="center homebadge"></th>
+                {{else}}
+                  <th class="center homebadge"></th>
+                {{/if}}
+              </tr>
+            </thead>
+            <tbody>
+              {{#each getMachine}}
+              <tr>
+                <!-- <td class="hide-on-small-only">{{getCompanyName _idCompany}}</td> -->
+                <td>{{name}}</td>
+                <td class="hide-on-small-only">{{getDeviceKeepAlive _id}}</td>
+                <td><span class="{{printStatusColor status}}">{{printStatusString status}}</span></td>
+                {{#if isInRole 'SysAdm, Adm, Supervisor'}}
+                <td>{{printHours _id}}</td>
+                <td>
+                <a class="waves-effect waves-teal btn-flat blue-grey lighten-4 badgefill gotodash hide-on-small-and-down">Dashboard<i class="mdi-content-send right"></i></a>
+                <a class="tooltipped btn-flat blue-grey lighten-4 badgefill gotodash hide-on-med-and-up" data-tooltip="Dashboard"><i class="mdi-content-send center"></i></a>
+                </td>
+                {{else}}
+                <td>
+                  <a class="waves-effect waves-teal btn-flat blue-grey lighten-4 badgefill gotooperator">TimeLine<i class="mdi-content-send right"></i></a>
+                </td>
+                {{/if}}
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </div>
+  </div>
+</template>
+
+<template name="home2">
+  {{#if isInRole 'God'}}
+  <div class="card mycard">
+    <div class="section">
+      <h5>Lista de Companias</h5>
+      <div class="divider margin-bottom"></div>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <table id="data-table-home" class="striped responsive compact" cellspacing="0">
+            <thead>
+              <tr>
+                <!-- <th class="hide-on-small-only">EMPRESA</th> -->
+                <th>Compania</th>
+                <th class="hide-on-small-only">Contato</th>
+                <th>Localização</th>
+                <th class="center homebadge"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each getMasterCompanies}}
+              <tr>
+                <!-- <td class="hide-on-small-only">{{getCompanyName _idCompany}}</td> -->
+                <td>{{name}}</td>
+                <td class="hide-on-small-only">{{Contact.contact}}</td>
+                <td>{{Contact.city}} - {{Contact.state}}</td>
+                <td>
+                  <a class="waves-effect waves-teal btn-flat blue-grey lighten-4 badgefill gotodash hide-on-small-and-down">{{countCompanies}} - Empresas<i class="mdi-content-send right"></i></a>
+                  <a class="tooltipped btn-flat blue-grey lighten-4 badgefill gotodash hide-on-med-and-up" data-tooltip="Dashboard"><i class="mdi-content-send center"></i></a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </div>
+  </div>
+  {{else}}
+  <div class="row center">
+    <div class="col s12 m6 offset-m3 l6 offset-l3">
+      <div class="card">
+        <div class="card-content red white-text">
+          <h1 class="title center">ACESSO RESTRITO!</h1>
+          <div class="divider"></div>
+          <h5 class="title center">Não disponível para este usuário.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</template>
+
+
+<template name="home3">
+  {{#if isInRole 'God, SysAdm'}}
+  <div class="card mycard">
+    <div class="section">
+      <h5>Lista de Empresas</h5>
+      <div class="divider margin-bottom"></div>
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <table id="data-table-home" class="striped responsive compact" cellspacing="0">
+            <thead>
+              <tr>
+                <!-- <th class="hide-on-small-only">EMPRESA</th> -->
+                <th >Empresa</th>
+                <th class="hide-on-small-only">Contato</th>
+                <th >Localização</th>
+                <th class="center homebadge"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each getCompanies}}
+              <tr>
+                <!-- <td class="hide-on-small-only">{{getCompanyName _idCompany}}</td> -->
+                <td>{{name}}</td>
+                <td class="hide-on-small-only">{{Contact.contact}}</td>
+                <td>{{Contact.city}} - {{Contact.state}}</td>
+                <td>
+                  <a class="waves-effect waves-teal btn-flat blue-grey lighten-4 badgefill gotodash hide-on-small-and-down">{{countMachines}} - Máquinas<i class="mdi-content-send right"></i></a>
+                  <a class="tooltipped btn-flat blue-grey lighten-4 badgefill gotodash hide-on-med-and-up" data-tooltip="Dashboard"><i class="mdi-content-send center"></i></a>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </div>
+  </div>
+  {{else}}
+  <div class="row center">
+    <div class="col s12 m6 offset-m3 l6 offset-l3">
+      <div class="card">
+        <div class="card-content red white-text">
+          <h1 class="title center">ACESSO RESTRITO!</h1>
+          <div class="divider"></div>
+          <h5 class="title center">Não disponível para este usuário.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</template>

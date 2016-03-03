@@ -1,0 +1,36 @@
+<!--================================================================================
+@file         modalsTypeMachine.html
+@version      0.0.1
+@path         client/_views/cpanel
+@description  Renderiza a modal de Delete TypeMachine.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="deleteTypeMachineModal">
+  <div class="center section">
+    <div class="modal-content">
+      <h5>Deseja realmente <b>excluir</b> este Tipo de Máquina?</h5>
+      <div class="divider margin-bottom"></div>
+      {{#if getMachineAssociated}}
+      <div class="row center">
+        <div class="col s10 offset-s1">
+          <div class="card">
+            <div class="card-content red white-text">
+              <h1 class="title center">ATENÇÃO!</h1>
+              <div class="divider"></div>
+              <h5 class="title center">Existem Máquinas associadas!</h5>
+              <h5> NÃO É POSSÍVEL EXCLUIR ESTE TIPO DE MÁQUINA.</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+    <div class="modal-footer">
+      <a class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="confirm-delete-machinetype-button"><i class="material-icons left">save</i>Confirmar</a>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" id="cancel-delete-machinetype-button"><i class="material-icons left">close</i>Cancelar</a>
+    </div>
+  </div>
+</template>

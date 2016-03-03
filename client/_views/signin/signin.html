@@ -1,0 +1,69 @@
+<!--================================================================================
+@file         signin.html
+@version      0.0.1
+@path         client/_views/signin
+@description  Renderiza as visão de login no sistema.
+@author       MateusDeveloperi
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="signIn">
+  <!-- START MAIN -->
+  <div class="grey darken-4">
+    <div id="login-page">
+      <div class="row">
+        <div class="col s10 offset-s1 m8 offset-m2 halign card-panel grey lighten-5 style-signin">
+          <form id="login-form" class="login">
+            <div class="row" style="margin-bottom: 0px;">
+            <div class="col s10 offset-s1 l6 center-align" style="margin-top: 2%;">
+                <div>
+                  <img src="images/dps_logo_vert.png" alt="" class="responsive-img valign">
+                </div>
+              </div>
+              <div class="col s10 offset-s1 l6 center-align">
+                <div class="row" style="margin-bottom: 0px;">
+                  <div class="col s10 offset-s1">
+                    <h4 class="center hide-on-small-only" >Bem-vindo!</h4>
+                    <div class="row">
+                      <div class="input-field">
+                        <i class="mdi-communication-email prefix"></i>
+                        <input id="email" class="validate" type="email" required>
+                        <label for="email" class="label-login-margin-left">Email</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field">
+                        <i class="mdi-action-lock prefix"></i>
+                        <input id="password" class="validate" type="password" required>
+                        <label for="password" class="label-login-margin-left">Password</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field">
+                        <button type="submit" class="btn waves-effect light-blue darken-4 waves-light center right">Entrar<i class="mdi-content-send right"></i></button>
+                      </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row">
+                      <div class="input-field right">
+                        <button data-target="forgotPassword" class="grey-text white black-text modal-trigger border-none">Esqueceu a senha?</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL INFO EMRPESA -->
+  <div id="forgotPassword" class="mymodal">
+    {{>forgotPasswordModal}}
+  </div>
+
+  <!-- END MAIN -->
+</template>

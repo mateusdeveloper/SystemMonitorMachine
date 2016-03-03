@@ -1,0 +1,224 @@
+<!--================================================================================
+@file         header.html
+@version      0.0.1
+@path         client/views/_include
+@description  Menú do sistema, cabeçalho do sistema.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="header">
+  <header id="header" class="page-topbar">
+    <div class="navbar-fixed">
+      <ul id="dropdown-user" class="dropdown-content">
+        <div class="row light-blue darken-2 nav-user">
+          <div class="col s12">
+            <span class="navtop-user-name">{{currentUser.profile.name}}</span>
+            <span class="navtop-company-name grey-text text-lighten-4"> {{getCompanyName currentUser}}</span>
+          </div>
+        </div>
+        <li>
+          <a class="waves-effect waves-block waves-light grey-text text-darken-4 header-modal" data-target="exitModal"><i class="tiny material-icons left">power_settings_new</i>Sair do Sistema</a>
+        </li>
+      </ul>
+      <nav class="light-blue darken-4">
+        <div class="nav-wrapper">
+          <a href="#" data-activates="slide-out" class="menu-sidebar-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
+          {{#if isInRole 'God, SysAdm'}}
+          {{#if isInRole 'God'}}
+          <a href="/home2" class="brand-logo"><img src="images/dpsystem.png" alt="logo" class="logo-header"></a>
+          {{else}}
+          <a href="/home3" class="brand-logo"><img src="images/dpsystem.png" alt="logo" class="logo-header"></a>
+          {{/if}}
+          {{else}}
+          <a href="/home" class="brand-logo"><img src="images/dpsystem.png" alt="logo" class="logo-header"></a>
+          {{/if}}
+          {{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+          <ul class="right hide-on-med-and-down">
+            {{#if isInRole 'God, SysAdm'}}
+            {{#if isInRole 'God'}}
+            <li id="home2">
+              <a href="home2" class="tooltipped waves-effect waves-block waves-light" data-tooltip="Home"><i class="tiny material-icons">web</i></a>
+            </li>
+            {{else}} <!-- BOTAO PARA SYS -->
+            <li id="home3">
+              <a href="home3" class="tooltipped waves-effect waves-block waves-light" data-tooltip="Home"><i class="tiny material-icons">web</i></a>
+            </li>
+            {{/if}}
+            {{else}} <!-- RESTO DOS USUARIOS -->
+            <li id="home">
+              <a href="home" class="tooltipped waves-effect waves-block waves-light" data-tooltip="Home"><i class="tiny material-icons">web</i></a>
+            </li>
+            {{/if}}
+            <li id="notifications">
+              <a href="notifications" class="tooltipped waves-effect waves-block waves-light" data-tooltip="Notificações"><i class="tiny material-icons">add_alert</i></a>
+            </li>
+            <li id="report">
+              <a href="report" class="tooltipped waves-effect waves-block waves-light" data-tooltip="Relatórios"><i class="tiny material-icons">insert_chart</i></a>
+            </li>
+            <li id="administration">
+              <a href="machine" class="tooltipped waves-effect waves-block waves-light" data-tooltip="Administração"><i class="tiny material-icons">settings</i></a>
+            </li>
+            <li>
+              <a class="tooltipped waves-effect waves-block waves-light header-modal" data-target="sysInfo" data-tooltip="Informações"><i class="tiny material-icons">info_outline</i></a>
+            </li>
+            <li>
+              <a class="tooltipped waves-effect waves-block waves-light toggle-fullscreen" data-tooltip="Maximizar"><i class="mdi-action-settings-overscan"></i></a>
+            </li>
+            <li>
+              <a class="tooltipped waves-effect waves-block waves-light dropdown-button" data-activates="dropdown-user" data-tooltip="Sair"><i class="tiny material-icons">more_vert</i></a>
+            </li>
+          </ul>
+          <!-- MENU CELULAR/TABLET -->
+          <ul id="slide-out" class="side-nav fixed cellphone">
+            <div class="row light-blue darken-2 nav-user">
+              <div class="col s12">
+                <span class="nav-user-name">{{currentUser.profile.name}}</span>
+              </div>
+            </div>
+            {{#if isInRole 'God, SysAdm'}}
+            {{#if isInRole 'God'}}
+            <li id="homecell">
+              <a href="home2" class="waves-effect waves-block waves-light"><i class="small material-icons left">web</i>Home</a>
+            </li>
+            {{else}} <!-- BOTAO PARA SYS -->
+            <li id="homecell">
+              <a href="home3" class="waves-effect waves-block waves-light"><i class="small material-icons left">web</i>Home</a>
+            </li>
+            {{/if}}
+            {{else}} <!-- RESTO DOS USUARIOS -->
+            <li id="homecell">
+              <a href="home" class="waves-effect waves-block waves-light"><i class="small material-icons left">web</i>Home</a>
+            </li>
+            {{/if}}
+            <li id="notificationscell">
+              <a href="notifications" class="waves-effect waves-block waves-light"><i class="tiny material-icons left">add_alert</i>Notificações</a>
+            </li>
+            <li id="reportcell">
+              <a href="report" class="waves-effect waves-block waves-light"><i class="tiny material-icons left">insert_chart</i>Relatórios</a>
+            </li>
+            <li class="menu-left-dropdown">
+              <ul class="collapsible collapsible-accordion">
+                <li id="dropdownmachinecell" class="menu-left-dropdown">
+                  <a id="administrationcell" class="waves-effect waves-block waves-light collapsible-header"><i class="tiny material-icons left">settings</i>Administração<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                  <div class="collapsible-body">
+                    <ul>
+                      {{#if isInRole 'God'}}
+                      <li id="mastercompanycell">
+                        <a href="mastercompany" class="waves-effect waves-block waves-light" >
+                          <i class="tiny material-icons">work</i> Companias
+                        </a>
+                      </li>
+                      {{/if}}
+                      {{#if isInRole 'God, SysAdm'}}
+                      <li id="companycell">
+                        <a href="company" class="waves-effect waves-block waves-light" >
+                          <i class="tiny material-icons">business</i> Empresas
+                        </a>
+                      </li>
+                      {{/if}}
+                      {{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+                      <li id="userscell">
+                        <a href="user" class="waves-effect waves-block waves-light" >
+                          <i class="tiny material-icons">person</i> Usuários
+                        </a>
+                      </li>
+                      {{/if}}
+                      {{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+                      <li id="machinecell" class="menu-left-dropdown">
+                        <ul class="collapsible collapsible-accordion">
+                          <li class="menu-left-dropdown">
+                            <a id="admmachinecell" class="waves-effect waves-block waves-light collapsible-header collapsible-header-inner"><i class="tiny material-icons">cast</i>Máquinas<i class="mdi-navigation-arrow-drop-down right cell2"></i></a>
+                            <div class="collapsible-body">
+                              <ul class="cell">
+                                {{#if isInRole 'God'}}
+                                <li id="typemachinecell">
+                                  <a href="typeMachine" class="waves-effect waves-block waves-light">Tipos de Máquinas</a>
+                                </li>
+                                {{/if}}
+                                <li id="registermachinecell">
+                                  <a href="machine" class="waves-effect waves-block waves-light">Cadastro de Máquinas</a>
+                                </li>
+                               <!--  <li id="profilemachinecell">
+                                  <a href="profileMachine" class="waves-effect waves-block waves-light">Lista de Dados</a>
+                                </li>
+                                <li id="eventsmachinecell">
+                                  <a href="eventsMachine" class="waves-effect waves-block waves-light">Lista de Eventos</a>
+                                </li> -->
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      {{/if}}
+                      {{#if isInRole 'God, SysAdm, Adm'}}
+                      <li id="devicecell">
+                        <a href="device" class="waves-effect waves-block waves-light">
+                          <i class="tiny material-icons">router</i> Dispositivos de Aquisição
+                        </a>
+                      </li>
+                      {{/if}}
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="waves-effect waves-block waves-light header-modal" data-target="sysInfo"><i class="tiny material-icons left">info_outline</i>Informações</a>
+            </li>
+            <div class="divider margin-bottom"></div>
+            <li>
+              <a class="waves-effect waves-block waves-light header-modal" data-target="exitModal"><i class="tiny material-icons left">power_settings_new</i>Log Off</a>
+            </li>
+          </ul>
+          <!-- FIM MENU CELULAR/TABLET -->
+          {{else}}
+          <ul class="right hide-on-med-and-down">
+            <li id="home">
+              <a href="home" class="waves-effect waves-block waves-light"><i class="tiny material-icons">web</i></a>
+            </li>
+            <li>
+              <a class="waves-effect waves-block waves-light header-modal" data-target="sysInfo"><i class="tiny material-icons">info_outline</i></a>
+            </li>
+            <li>
+              <a class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
+            </li>
+            <li>
+              <a class="tooltipped waves-effect waves-block waves-light dropdown-button" data-activates="dropdown-user" data-tooltip="Sair"><i class="tiny material-icons">more_vert</i></a>
+            </li>
+          </ul>
+          <!-- MENU CELULAR/TABLET -->
+          <ul id="slide-out" class="side-nav left-align">
+            <div class="row light-blue darken-2 nav-user">
+              <div class="col s12">
+                <span class="nav-user-name">{{currentUser.profile.name}}</span>
+              </div>
+            </div>
+            <li id="homecell">
+              <a href="home" class="waves-effect waves-block waves-light"><i class="tiny material-icons">web</i>Home</a>
+            </li>
+            <li id="informationcell">
+              <a class="waves-effect waves-block waves-light header-modal" data-target="sysInfo"><i class="tiny material-icons">info_outline</i>Informações</a>
+            </li>
+            <div class="divider margin-bottom"></div>
+            <li>
+              <a class="waves-effect waves-block waves-light header-modal" data-target="exitModal"><i class="tiny material-icons">power_settings_new</i>Sair do Sistema</a>
+            </li>
+          </ul>
+          <!-- FIM MENU CELULAR/TABLET -->
+          {{/if}}
+
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- MODAL INFORMACAO SISTEMA -->
+  <div id="sysInfo" class="mymodal">
+    {{>sysInfoModal}}
+  </div>
+  <!-- MODAL LOGOUT -->
+  <div id="exitModal" class="mymodal">
+    {{>exit}}
+  </div>
+</template>

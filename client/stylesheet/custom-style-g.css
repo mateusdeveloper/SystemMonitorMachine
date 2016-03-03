@@ -1,0 +1,196 @@
+/*================================================================================
+//  @file         custom-style-g.css
+//  @version      0.0.1
+//  @path         client/stylesheet/
+//  @description  Customizações de CSS (estilos) do sistema para MateusCardoso.
+//  @author       MateusCardoso
+//  @contact      mateus.developer@gmail.com
+//  @copyright    Copyright Mateus Cardoso Nunes
+//================================================================================*/
+ .logo-report{
+   height: 100px;
+ }
+
+ #toast-container{
+ 	z-index: 10000 !important
+ }
+
+.verythin {
+	width: 60px;
+}
+
+.cd-success {
+  background: #75ce66;
+}
+
+.cd-alert {
+  background: #c03b44;
+}
+
+.cd-warning {
+  background: #f0ca45;
+}
+
+.spacious{
+	margin-top:12px;
+}
+
+.dont-squeeze-me{
+	min-width: 53px;
+}
+
+.space-form{
+	margin-bottom: 0px !important;
+}
+
+.dont-scroll-me{
+	margin-right: 13px;
+	margin-bottom: 20px !important;
+}
+
+.doughnut-chart-legend li{
+  padding: 2px 0;
+  font-size: 0.9rem;
+}
+
+.doughnut-chart-legend li:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  display: block;
+  float: left;
+  margin-top: 6px;
+  margin-right: 4px;
+}
+
+li.carga:before {
+  background: #F7464A;
+}
+
+li.alivio:before {
+  background: #46BFBD;
+}
+
+.timeline-scroll{
+	max-height: 600px;
+	overflow-y: scroll;
+	height: 100%;
+	width: 100%;
+	padding-top: 100px;
+}
+
+.mymodal {
+	display: none;
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	background-color: #FAFAFA;
+	padding: 0px;
+	max-height: 90%;
+	width: 55%;
+	margin: auto;
+	border-radius: 5px;
+	will-change: top, opacity;
+}
+
+@media only screen and (max-width: 960px) {
+	.mymodal {
+		max-height: 90%;
+		width: 80%;
+	}
+}
+
+.mycard {
+	padding: 1% 2% 1% 2%;
+}
+
+
+.badgefill { /*Estilo do badge (dashboards) utilizado somente em telas grandes*/
+	width: 50%;
+	text-align: center;
+	margin-left:20%;
+}
+
+@media only screen and (max-width: 960px) {
+	.badgefill { /*Estilo do badge (dashboards) utilizado somente em telas medias*/
+		width: 42%;
+		margin-left: 20%;
+	}
+
+}
+
+@media only screen and (max-width: 654px) {
+	.badgefill { /*Estilo do badge (dashboards) utilizado somente em telas muito pequenas mesmo*/
+		width: 40% !important;
+		float: left !important;
+	}
+	.btn {
+		font-size:0.85rem;
+	}
+}
+
+@media only screen and (max-width: 620px) {
+	.badgefill { /*Estilo do badge (dashboards) utilizado somente em telas muito pequenas mesmo*/
+		width: 7% !important;
+	}
+	.btn {
+		font-size:0.85rem;
+	}
+}
+
+.timeline-bg {
+	background-color: #b2ebf2;
+	padding:2% !important;
+}
+
+.homebadge {
+	width:30%;
+}
+
+.myflatbtn {
+	color: #9C9C9C !important;
+}
+
+.section-graph {
+	padding-left: 0rem !important;
+	padding-right: 0rem !important;
+}
+
+.trending-line-chart-wrapper {
+	margin: 1% 2%;
+}
+
+
+/*----------------------------------------------------------*/
+/*Classes relativas ao tamanho dos ícones usados na Timeline*/
+.tlresponsiveicon {
+	font-size: 4rem !important;
+}
+
+@media only screen and (max-width: 1170px) {
+	.tlresponsiveicon {
+		font-size: 2.85rem !important;
+	}
+}
+/*----------------------------------------------------------*/
+
+
+/*----------------------------------------------------------*/
+/*		ESTILOS DE FORMULARIOS																*/
+
+/* icon prefix focus color */
+.input-field .prefix.active{
+	color: #1976d2 !important;
+}
+
+/* label underline focus color */
+.input-field :focus {
+	border-bottom: 1px solid #1976d2 !important;
+	box-shadow: 0 1px 0 0 #1976d2 !important;
+}
+
+/* label focus color */
+.input-field :focus + label {
+	color: #1976d2 !important;
+}
+

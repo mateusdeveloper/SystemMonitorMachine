@@ -1,0 +1,213 @@
+/*================================================================================
+//  @file         custom-style-g.css
+//  @version      0.0.1
+//  @path         client/stylesheet/
+//  @description  Customizações de CSS (estilos) do sistema para.
+//  @author       MateusCardoso
+//  @contact      mateus.developer@gmail.com
+//  @copyright    Copyright Mateus Cardoso Nunes
+//================================================================================*/
+
+.style-cpanel-operator{
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: -3%;
+	margin-top: -2%;
+}
+
+.margin-bottom{
+	margin-bottom: 2% !important;
+}
+
+.maps-size-dashboard{
+  width: 100% !important;
+  height: 320px !important;
+}
+
+@media only screen and (max-width: 992px) {
+  .maps-size-dashboard{
+    width: 100% !important;
+    height: 250px !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .maps-size-dashboard-modal{
+    width: 100% !important;
+    height: 220px !important;
+  }
+}
+
+.maps-size-dashboard-modal{
+  width: 100% !important;
+  height: 210px !important;
+}
+
+@media only screen and (max-width: 992px) {
+  .maps-size-dashboard-modal{
+    width: 100% !important;
+    height: 250px !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .maps-size-dashboard-modal{
+    width: 100% !important;
+    height: 220px !important;
+  }
+}
+
+/*=================================================================================
+    LAYOUT SELECTS2
+    ================================================================================*/
+    .select2-container--default .select2-selection--single {
+     text-align: center !important;
+     border: none !important;
+     border-bottom: 1px solid #aaa !important;
+   }
+
+   .select2-container--default .select2-selection--single .select2-container--open .select2-dropdown--below {
+     background-color: #fff !important;
+     border-radius: 4px !important;
+   }
+
+   .select2-selection__arrow {
+     height: 26px !important;
+     position: absolute !important;
+     top: -2px !important;
+     right: 25px !important;
+     width: 3% !important;
+   }
+
+   .select2 {
+    margin-top: 3.3% !important;
+  }
+
+  .select2-container {
+    padding-right: 3% !important;
+    width: 100% !important;
+  }
+
+
+
+  .select2-dropdown {
+    padding-right: 3% !important;
+    position: relative !important;
+  }
+
+  /*=================================================================================
+    LAYOUT SELECTS2 FINISH
+    ================================================================================*/
+
+    .overflow-info{
+      overflow-y: hidden !important;
+    }
+
+    @media only screen and (max-width: 602px) {
+      .overflow-info{
+        overflow-y: auto !important;
+      }
+    }
+
+    .border-none{
+      border: none !important;
+    }
+
+    .style-signin{
+      margin-top: 5% !important;
+      margin-bottom: 5% !important;
+      border-radius: 10px !important;
+    }
+
+    .margin-bottom-tittle-signin{
+      margin-bottom: 10% !important;
+    }
+
+    .dash-event-modal-scroll{
+      overflow-y: hidden;
+    }
+
+    @media only screen and (max-width: 489px) {
+      .dash-event-modal-scroll{
+        max-height: 450px;
+        overflow-y: scroll;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .meso-error {
+      font-size: .8em !important;
+      color: red !important;
+      margin-top: -1% !important;
+    }
+
+    .timer-style{
+      margin-top: 5.8% !important;
+    }
+
+    @media only screen and (max-width: 1358px){
+      .timer-style {
+        width: 51% !important;
+        margin-left: 20% !important;
+        margin-top: 5.8% !important;
+      }
+    }
+
+    @media only screen and (max-width: 1358px){
+      .num-timer-style {
+        margin-left: 10% !important;
+      }
+    }
+
+    .label-login-margin-left {
+      margin-left: 2.2rem !important;
+    }
+
+    .top-dash-horimetro {
+      margin-top: 7%;
+    }
+
+    .top-graph-dash-horimetro {
+      margin-top: 2%;
+    }
+
+    @media only screen and (max-width: 990px){
+      .top-dash-horimetro {
+        margin-left: 29% !important;
+      }
+    }
+
+    @media only screen and (max-width: 602px){
+      .top-dash-horimetro {
+        margin-left: 0% !important;
+      }
+    }
+
+    .font-dash-1{
+      font-size: 13px;
+    }
+
+    .space-right{
+      margin-right: 1.5%;
+    }
+
+    .slider{
+      height: 10px;
+    }
+
+    .noUi-connect {
+      background: #64B5F6 none repeat scroll 0% 0%;
+    }
+    .noUi-horizontal .noUi-handle {
+      width: 34px;
+      height: 20px;
+      left: -17px;
+      top: -6px;
+    }
+
+    @media only screen and (max-width: 3000px){
+      .scroll{
+        overflow: scroll !important;
+      }
+    }

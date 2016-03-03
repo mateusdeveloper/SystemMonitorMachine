@@ -1,0 +1,395 @@
+<!--=================================================================================================================
+@file         formsMachine.html
+@version      0.0.1
+@path         client/views/cpanel/machine
+@description  Renderiza formulários de Inserir/Editar Máquinas.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com/mateus
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================================================= -->
+
+<!-- ************************************************************************************************************ -->
+<!-- INSERT                                                                                                       -->
+<!-- ************************************************************************************************************ -->
+<template name="formInsertMachine">
+	{{#if isInRole 'God, SysAdm, Adm'}}
+	<h5>Inserir Máquina</h5>
+	<div class="card mycard">
+		<div class="section">
+			<form id="insert-machine-form" name="insertMachineForm">
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<input id="machinename" type="text">
+						<label for="machinename">Nome da Máquina<span id="machinename-error"></span></label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="serialnumber" type="text">
+						<label for="serialnumber">Número de Série<span id="serialnumber-error"></span></label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="machineinfo" type="text">
+						<label for="machineinfo">Informações da Máquina</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col s12">
+						<ul class="tabs z-depth-1">
+							<li class="tab col s4 waves-effect"><a class="blue-text text-darken-4 active" href="#profile">Perfil</a></li>
+							<li class="tab col s4 waves-effect"><a class="blue-text text-darken-4" href="#goals">Metas</a></li>
+							<li class="tab col s4 waves-effect"><a class="blue-text text-darken-4" href="#operators">Operadores</a></li>
+						</ul>
+					</div>
+					<div id="profile" class="col s12">
+						<div class="card mycard">
+							<h5>Descrições e Unidades para dados Monitorados</h5>
+							<div class="divider"></div>
+							<div class="row">
+								<div class=" col s12">
+									<div class="card mycard">
+										<div class="section">
+											<table class="striped responsive-table">
+												<thead>
+													<tr>
+														<th>Descrição</th>
+														<th>Unidade</th>
+														<th>Limite</th>
+													</tr>
+												</thead>
+												<tbody>
+													{{#each getProfileData}}
+													<tr>
+														<td>
+															<div class="input-field">
+																<input class="profile-value" name="profile-value" type="text" value="{{[0]}}">
+																<label for="profile-value"><span id="profile-value-error"></span></label>
+															</div>
+														</td>
+
+														<td>
+															<div class="input-field">
+																<input class="profile-unit" name="profile-unit" type="text" value="{{[1]}}">
+																<label for="profile-unit"><span id="profile-unit-error"></span></label>
+															</div>
+														</td>
+
+														<td>
+															<div class="input-field">
+																<input class="profile-limit" name="profile-limit" type="text" value="{{[2]}}">
+																<label for="profile-limit"><span id="profile-limit-error"></span></label>
+															</div>
+														</td>
+													</tr>
+													{{/each}}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="goals" class="col s12">
+						<div class="card mycard">
+							<h5>Metas a serem atingidas por esta Máquina</h5>
+							<div class="divider"></div>
+							<div class="row">
+								<div class=" col s12">
+									<div class="card mycard">
+										<div class="section">
+											<table class="striped responsive-table">
+												<thead>
+													<tr>
+														<th>Descrição da Meta</th>
+														<th>Unidade / Quantidade</th>
+													</tr>
+												</thead>
+												<tbody>
+													{{#each getGoalData}}
+													<tr>
+														<td>
+															<div class="input-field">
+																<input class="goal-description" name="goal-description" type="text" value="{{[0]}}">
+																<label for="goal-description"><span id="goal-description-error"></span></label>
+															</div>
+														</td>
+
+														<td>
+															<div class="input-field">
+																<input class="goal-value" name="goal-value" type="text" value="{{[1]}}">
+																<label for="goal-value"><span id="goal-value-error"></span></label>
+															</div>
+														</td>
+													</tr>
+													{{/each}}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="operators" class="col s12">
+						<div class="card mycard">
+							<h5 >Operadores para esta Máquina</h5>
+							<div class="divider"></div>
+							<div class="row">
+								<div class="input-field col s12 m6">
+									<select id="select-machine-operator">
+										<option value="" disabled selected>Operadores...</option>
+										{{#each getOperator}}
+										<option value="{{_id}}">{{profile.name}}</option>
+										{{/each}}
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class=" col s12">
+									<div class="card mycard">
+										<div class="section">
+											<table class="striped responsive-table">
+												<thead>
+													<tr>
+														<th>Nome</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody>
+													{{#each getSelectedOperator}}
+													<tr>
+														<td>{{profile.name}}</td>
+														<td><a class="tooltipped waves-effect btn-flat btn-floating right operator-remove-button" data-tooltip="Remover Compania"><i class="mdi-action-delete myflatbtn"></i></a></td>
+													</tr>
+													{{/each}}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="divider"></div>
+				<div class="row space-form">
+					<button class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" type="submit" name="action">Salvar
+						<i class="mdi-content-save right"></i>
+					</button>
+					<a class="waves-effect waves-red btn-flat right modallbtn" href="machine"><i class="material-icons right">cancel</i>Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>
+
+
+
+<!-- *************************************************************************************************************** -->
+<!-- UPDATE -->
+<!-- ************************************************************************************************************ -->
+<template name="formUpdateMachine">
+	{{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+	<h5>Editar Máquina - <b>{{getMachine.name}}</b></h5>
+	<div class="card mycard">
+		<div class="section">
+			<form id="update-machine-form" name="updateMachineForm">
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<input id="machinename" type="text" value="{{getMachine.name}}">
+						<label for="machinename" class="active">Nome da Máquina<span id="machinename-error"></span></label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="serialnumber" type="text" value="{{getMachine.serialnumber}}">
+						<label for="serialnumber" class="active">Número de Série<span id="serialnumber-error"></span></label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="machineinfo" type="text" value="{{getMachine.info}}">
+						<label for="machineinfo" class="active">Informações da Máquina</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col s12">
+						<ul class="tabs z-depth-1">
+							<li class="tab col s4 waves-effect"><a class="blue-text text-darken-4 active" href="#profile">Perfil</a></li>
+							<li class="tab col s4 waves-effect"><a class="blue-text text-darken-4" href="#goals">Metas</a></li>
+							<li class="tab col s4 waves-effect"><a class="blue-text text-darken-4" href="#operators">Operadores</a></li>
+						</ul>
+					</div>
+					<div id="profile" class="col s12">
+						<div class="card mycard">
+							<h5>Descrições e Unidades para dados Monitorados</h5>
+							<div class="divider"></div>
+							<div class="row">
+								<div class=" col s12">
+									<div class="card mycard">
+										<div class="section">
+											<table class="striped responsive-table">
+												<thead>
+													<tr>
+														<th>Descrição</th>
+														<th>Unidade</th>
+														<th>Limite</th>
+													</tr>
+												</thead>
+												<tbody>
+													{{#each getProfileData}}
+													<tr>
+														<td>
+															<div class="input-field">
+																<input class="profile-value" name="profile-value" type="text" value="{{[0]}}">
+																<label for="profile-value"><span id="profile-value-error"></span></label>
+															</div>
+														</td>
+
+														<td>
+															<div class="input-field">
+																<input class="profile-unit" name="profile-unit" type="text" value="{{[1]}}">
+																<label for="profile-unit"><span id="profile-unit-error"></span></label>
+															</div>
+														</td>
+
+														<td>
+															<div class="input-field">
+																<input class="profile-limit" name="profile-limit" type="text" value="{{[2]}}">
+																<label for="profile-limit"><span id="profile-limit-error"></span></label>
+															</div>
+														</td>
+													</tr>
+													{{/each}}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="goals" class="col s12">
+						<div class="card mycard">
+							<h5>Metas a serem atingidas por esta Máquina</h5>
+							<div class="divider"></div>
+							<div class="row">
+								<div class=" col s12">
+									<div class="card mycard">
+										<div class="section">
+											<table class="striped responsive-table">
+												<thead>
+													<tr>
+														<th>Descrição da Meta</th>
+														<th>Unidade / Quantidade</th>
+													</tr>
+												</thead>
+												<tbody>
+													{{#each getGoalData}}
+													<tr>
+														<td>
+															<div class="input-field">
+																<input class="goal-description" name="goal-description" type="text" value="{{[0]}}">
+																<label for="goal-description"><span id="goal-description-error"></span></label>
+															</div>
+														</td>
+
+														<td>
+															<div class="input-field">
+																<input class="goal-value" name="goal-value" type="text" value="{{[1]}}">
+																<label for="goal-value"><span id="goal-value-error"></span></label>
+															</div>
+														</td>
+													</tr>
+													{{/each}}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="operators" class="col s12">
+						<div class="card mycard">
+							<h5 >Operadores para esta Máquina</h5>
+							<div class="divider"></div>
+							<div class="row">
+								<div class="input-field col s12 m6">
+									<select id="select-machine-operator">
+										<option value="" disabled selected>Operadores...</option>
+										{{#each getOperator}}
+										<option value="{{_id}}">{{profile.name}}</option>
+										{{/each}}
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class=" col s12">
+									<div class="card mycard">
+										<div class="section">
+											<table class="striped responsive-table">
+												<thead>
+													<tr>
+														<th>Nome</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody>
+													{{#each getSelectedOperator}}
+													<tr>
+														<td>{{profile.name}}</td>
+														<td><a class="tooltipped waves-effect btn-flat btn-floating right operator-remove-button" data-tooltip="Remover Compania"><i class="mdi-action-delete myflatbtn"></i></a></td>
+													</tr>
+													{{/each}}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="divider"></div>
+				<div class="row space-form">
+					<button class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" type="submit" name="action">Salvar
+						<i class="mdi-content-save right"></i>
+					</button>
+					<a class="waves-effect waves-red btn-flat right modallbtn" href="machine"><i class="material-icons right">cancel</i>Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>

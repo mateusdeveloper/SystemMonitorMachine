@@ -1,0 +1,203 @@
+  <!--================================================================================
+@file         modalsHeader.html
+@version      0.0.1
+@path         client/_views/info
+@description  Renderiza a modal de informações do sistema.
+@author       MateusDeveloperi
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="sysInfoModal">
+
+  <div class="modal-content center section">
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs z-depth-1">
+          <li class="tab col s4 waves-effect"><a class="blue-text text-darken-4 active" href="#sysInfoTab">Sistema</a></li>
+          <li class="tab col s4 waves-effect"><a class="blue-text text-darken-4" href="#companyInfoTab">Empresa</a></li>
+          <li class="tab col s4 waves-effect"><a class="blue-text text-darken-4" href="#userInfoTab">Usuário</a></li>
+        </ul>
+      </div>
+
+      <div class="col s12">
+        <div class="card">
+          <div id="sysInfoTab">
+            <div class="row">
+              <div class="col s12">
+                <div class="collection">
+                  <img src="images/dpsystem2.png" alt="" class="responsive-img valign">
+                  <h5>{{getIdSystem.version}} - {{formatDate getIdSystem.daterelease}}</h5>
+                  <div class="divider"></div>
+                  {{getIdSystem.license}}
+                </div>
+              </div>
+            </div>
+          </div>
+          {{#if isInRole 'Adm, Supervisor, Operator'}}
+          <div id="companyInfoTab">
+            <div class="row">
+              <div class="col s12">
+                <ul id="profile-page-about-details" class="collection">
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-action-wallet-travel"></i> Empresa:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoCompany.name}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-social-public"></i> Cidade:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoCompany.Contact.city}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-social-public"></i> Estado:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoCompany.Contact.state}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-action-perm-phone-msg"></i> Telefone:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoCompany.Contact.phone}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-action-grade"></i> CNPJ:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoCompany.cnpj}}</div>
+                    </div>
+                  </li>
+                </ul>
+                <!--/ Company About Details  -->
+              </div>
+            </div>
+          </div>
+          {{else}}
+          <div id="companyInfoTab">
+            <div class="row">
+              <div class="col s12">
+                <ul id="profile-page-about-details" class="collection">
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-action-wallet-travel"></i> Empresa:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoMasterCompany.name}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-social-public"></i> Cidade:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoMasterCompany.Contact.city}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-social-public"></i> Estado:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoMasterCompany.Contact.state}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-action-perm-phone-msg"></i> Telefone:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoMasterCompany.Contact.phone}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-action-grade"></i> CNPJ:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{getInfoMasterCompany.cnpj}}</div>
+                    </div>
+                  </li>
+                </ul>
+                <!--/ Company About Details  -->
+              </div>
+            </div>
+          </div>
+          {{/if}}
+
+          <div id="userInfoTab">
+            <div class="row">
+              <div class="col s12" >
+                <ul id="profile-page-about-details" class="collection">
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-action-account-circle"></i> Nome de Usuário:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{currentUser.profile.name}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-action-wallet-travel"></i> Seu nível de usuário:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{currentUser.roles}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text darken-1 left-align"><i class="mdi-communication-email"></i> Contato:</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">{{currentUser.emails.[0].address}}</div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <a class="waves-effect waves-light red btn activator">Alterar Senha</a>
+                  </li>
+                </ul>
+                <!--/ Profile About Details  -->
+              </div>
+            </div>
+
+            <div class="card-reveal overflow-info">
+              <div class="card-title grey-text text-darken-4">Bem-vindo <b>{{currentUser.profile.name}}</b>, altere sua senha:<i id="close-modal" class="material-icons right">close</i></div>
+              <div class="divider"></div>
+
+              <div class="row">
+                <form id="update-password-form" name="updatePasswordForm">
+
+                  <div class="row">
+                    <div class="input-field col s12 m10 offset-m1">
+                      <i class="mdi-action-lock prefix"></i>
+                      <input id="actualPassword" type="password">
+                      <label for="actualPassword">Senha atual<span id="actualPassword-error"></span></label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s12 m5 offset-m1">
+                      <i class="mdi-action-lock prefix"></i>
+                      <input id="newPassword" type="password">
+                      <label for="newPassword">Nova senha<span id="newPassword-error"></span></label>
+                    </div>
+                    <div class="input-field col s12 m5">
+                      <i class="mdi-action-lock prefix"></i>
+                      <input id="newPasswordAgain" type="password">
+                      <label for="newPasswordAgain">Confirmar<span id="newPasswordAgain-error"></span></label>
+                    </div>
+
+                    <button class="btn btn-small waves-effect waves-light light-blue darken-2 right" type="submit" name="action">Salvar<i class="mdi-content-save right"></i>
+                    </button>
+
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="exit">
+  <div class="center section">
+    <div class="modal-content">
+      <h5>Deseja realmente sair do sistema?</h5>
+      <div class="divider margin-bottom"></div>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="confirmExit"><i class="material-icons left">done</i>Confirmar</a>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" ><i class="material-icons left">close</i>Cancelar</a>
+    </div>
+  </div>
+</template>
+

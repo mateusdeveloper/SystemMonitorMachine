@@ -1,0 +1,193 @@
+<!--=================================================================================================================
+@file         formsCompany.html
+@version      0.0.1
+@path         client/views/cpanel/machine
+@description  Renderiza formulários de Inserir/Editar para Companias/Empresas.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com/mateus
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================================================= -->
+
+<!-- ************************************************************************************************************ -->
+<!-- INSERT                                                                                                       -->
+<!-- ************************************************************************************************************ -->
+<template name="formInsertCompany">
+	{{#if isInRole 'God, SysAdm'}}
+	<h5>Inserir Empresa</h5>
+	<div class="card mycard">
+		<div class="section">
+			<form class="col s12" id="insert-company-form" name="insertCompanyForm" >
+				<div class="row">
+					<div class="input-field col s12 m8">
+						<input id="name" type="text" required>
+						<label for="name">Nome<span id='name-error'></span></label>
+					</div>
+					<div class="input-field col s12 m4">
+						<input id="cnpj" type="text">
+						<label for="cnpj">CNPJ<span id='cnpj-error'></span></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12 m5">
+						<input id="contact" type="text">
+						<label for="contact">Contato<span id='contact-error'></span></label>
+					</div>
+					<div class="input-field col s12 m3">
+						<input id="phone" type="text">
+						<label for="phone">Telefone<span id='phone-error'></span></label>
+					</div>
+					<div class="input-field col s12 m4">
+						<input id="email" type="email">
+						<label for="email">E-mail<span id='email-error'></span></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12 m5">
+						<input id="street" type="text">
+						<label for="street">Rua, número<span id='street-error'></span></label>
+					</div>
+					<div class="input-field col s12 m3">
+						<input id="city" type="text">
+						<label for="city">Cidade<span id='city-error'></span></label>
+					</div>
+					<div class="input-field col s12 m2">
+						<input id="state" type="text">
+						<label for="state">Estado<span id='state-error'></span></label>
+					</div>
+					<div class="input-field col s12 m2">
+						<input id="zipcode" type="text">
+						<label for="zipcode">CEP<span id='zipcode-error'></span></label>
+					</div>
+				</div>
+				<div class="row">
+					{{#if isInRole 'God'}}
+					<div class="input-field col s12 m5 l5">
+						<select id="select-mastercompany">
+							<option value="" disabled selected>Compania...</option>
+							{{#each getMasterCompany}}
+							<option value="{{_id}}">{{name}}</option>
+							{{/each}}
+						</select>
+						<label class="active">Compania<span id='master-error'></span></label>
+					</div>
+					{{/if}}
+				</div>
+				<div class="divider"></div>
+				<div class="row space-form">
+					<button class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" type="submit" name="action">Salvar
+						<i class="mdi-content-save right"></i>
+					</button>
+					<a class="waves-effect waves-red btn-flat right modallbtn" href="company"><i class="material-icons right">cancel</i>Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>
+
+
+
+<!-- ************************************************************************************************************ -->
+<!-- UPDATE -->
+<!-- ************************************************************************************************************ -->
+<template name="formUpdateCompany">
+	{{#if isInRole 'God, SysAdm'}}
+	<h5>Editar Empresa - <b>{{getCompany.name}}</b></h5>
+	<div class="card mycard">
+		<div class="section">
+			<form class="col s12" id="update-company-form" name="updateCompanyForm">
+				<div class="row">
+					<div class="input-field col s12 m2">
+						<input id="companyCode" type="text" value="{{getCompany._companyCode}}" required disabled>
+						<label for="companyCode" class="active">Código da Empresa</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="name" type="text" value="{{getCompany.name}}" required>
+						<label for="name" class="active">Nome<span id='name-error'></span></label>
+					</div>
+					<div class="input-field col s12 m4">
+						<input id="cnpj" type="text" value="{{getCompany.cnpj}}">
+						<label for="cnpj" class="active">CNPJ<span id='cnpj-error'></span></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12 m4">
+						<input id="contact" type="text" value="{{getCompany.Contact.contact}}" >
+						<label for="contact" class="active">Contato<span id='contact-error'></span></label>
+					</div>
+					<div class="input-field col s12 m4">
+						<input id="phone" type="text" value="{{getCompany.Contact.phone}}" >
+						<label for="phone" class="active">Telefone<span id='phone-error'></span></label>
+					</div>
+					<div class="input-field col s12 m4">
+						<input id="email" type="email" value="{{getCompany.Contact.email}}" >
+						<label for="email" class="active">E-mail<span id='email-error'></span></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12 m5">
+						<input id="street" type="text" value="{{getCompany.Contact.street}}" >
+						<label for="street" class="active">Rua, número<span id='street-error'></span></label>
+					</div>
+					<div class="input-field col s12 m3">
+						<input id="city" type="text" value="{{getCompany.Contact.city}}" >
+						<label for="city" class="active">Cidade<span id='city-error'></span></label>
+					</div>
+					<div class="input-field col s12 m2">
+						<input id="state" type="text" value="{{getCompany.Contact.state}}" >
+						<label for="state" class="active">Estado<span id='state-error'></span></label>
+					</div>
+					<div class="input-field col s12 m2">
+						<input id="zipcode" type="text" value="{{getCompany.Contact.zipcode}}" >
+						<label for="zipcode" class="active">CEP<span id='zipcode-error'></span></label>
+					</div>
+				</div>
+				<div class="row">
+					{{#if isInRole 'God'}}
+					<div class="input-field col s12 m5 l5">
+						<select id="select-mastercompany">
+							<option value="" disabled selected>Compania...</option>
+							{{#each getMasterCompany}}
+							<option value="{{_id}}" {{selectedForMasterCompany _id}}>{{name}}</option>
+							{{/each}}
+						</select>
+						<label class="active">Compania<span id='_idMasterCompany-error'></span></label>
+					</div>
+					{{/if}}
+				</div>
+				<div class="divider"></div>
+				<div class="row space-form">
+					<button class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" type="submit" name="action">Salvar
+						<i class="mdi-content-save right"></i>
+					</button>
+					<a class="waves-effect waves-red btn-flat right modallbtn" href="company"><i class="material-icons right">cancel</i>Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>

@@ -1,0 +1,23 @@
+<!--================================================================================
+@file         modalsUser.html
+@version      0.0.1
+@path         client/_views/cpanel
+@description  Renderiza as modais de Add/Edit usuários.
+@author       MateusCardoso
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+<template name="deleteUserModal">
+
+	<div class="center section">
+		<div class="modal-content">
+			<h5>Deseja realmente excluir o usuário: <b>{{getUser.profile.name}}</b>?</h5>
+			<div class="divider margin-bottom"></div>
+		</div>
+		<div class="modal-footer">
+			<a class="modal-close btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="confirmDelete"><i class="material-icons left">save</i>Confirmar</a>
+			<a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" ><i class="material-icons left">close</i>Cancelar</a>
+		</div>
+	</div>
+
+</template>

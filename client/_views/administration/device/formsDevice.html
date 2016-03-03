@@ -1,0 +1,154 @@
+<!--=================================================================================================================
+@file         formsDevice.html
+@version      0.0.1
+@path         client/views/cpanel/machine
+@description  Renderiza formulários de Inserir/Editar Dispositivos.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com/mateus
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================================================= -->
+
+<!-- ************************************************************************************************************ -->
+<!-- INSERT                                                                                                       -->
+<!-- ************************************************************************************************************ -->
+<template name="formInsertDevice">
+	{{#if isInRole 'God, SysAdm, Adm'}}
+	<h5>Associar Dispositivo de Aquisição</h5>
+	<div class="card mycard">
+		<div class="section">
+			<form id="insert-device-form" name="insertDeviceForm">
+
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<select id="select-device">
+							<option value="" disabled selected>Dipositivos...</option>
+							{{#each getDevices}}
+							<option value="{{_id}}">{{name}}</option>
+							{{/each}}
+						</select>
+						<label class="active">Lista de Dispositivos<span id="_id-error"></span></label>
+					</div>
+					<div class="input-field col s12 m6">
+						<select id="select-machine">
+							<option value="" disabled selected>Máquinas...</option>
+							{{#each getMachines}}
+							<option value="{{_id}}">{{name}}</option>
+							{{/each}}
+						</select>
+						<label class="active">Pertence a Máquina<span id="_idMachine-error"></span></label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<input id="device-name" type="text">
+						<label for="device-name">Nome do Device<span id="name-error"></span></label>
+					</div>
+					<div class="input-field col col s12 m6">
+						<input id="serial-number" type="text">
+						<label for="serial-number">Número de Série<span id="serialnumber-error"></span></label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12 m12">
+						<textarea id="info-device" class="materialize-textarea validate"></textarea>
+						<label for="textarea1">Informações do Devices</label>
+					</div>
+				</div>
+				<div class="divider"></div>
+
+				<div class="row space-form">
+					<button class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" type="submit" name="action">Salvar
+						<i class="mdi-content-save right"></i>
+					</button>
+					<a class="waves-effect waves-red btn-flat right modallbtn" href="device"><i class="material-icons right">cancel</i>Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>
+
+
+
+<!-- ************************************************************************************************************ -->
+<!-- UPDATE -->
+<!-- ************************************************************************************************************ -->
+<template name="formUpdateDevice">
+	{{#if isInRole 'God, SysAdm, Adm'}}
+	<h5>Editar Dispositivo de Aquisição - <b>{{getDevice.name}}</b></h5>
+	<div class="card mycard">
+		<div class="section">
+			<form id="update-device-form" name="updateDeviceForm">
+				<div class="row">
+				<div class="input-field col s6 m2 l2">
+						<input id="id-hawrdware" type="text" class="validate" value="{{getDevice._idHardware}}" disabled>
+						<label for="id-hawrdware" class="active">Identificação do Hardware</label>
+					</div>
+					<div class="input-field col s12 m10 l10">
+						<input id="device-name" type="text" class="validate" value="{{getDevice.name}}">
+						<label for="device-name" class="active">Nome do Dispositivo<span id="name-error"></span></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6 m6 l6">
+						<input id="serial-number" type="text" class="validate" value="{{getDevice.serialnumber}}">
+						<label for="serial-number" class="active">Número de Série<span id="serialnumber-error"></span></label>
+					</div>
+					<div class="input-field col s12 m6 l6">
+						<!-- <h6 class="left grey-text lighten-2">Pertence a Máquina:</h6> -->
+						<select id="select-machine">
+							{{#each getMachines}}
+							<option value="{{_id}}" {{selectedForDevices _id}}>{{name}}</option>
+							{{/each}}
+						</select>
+						<label class="active">Pertence a Máquina<span id="_idMachine-error"></span></label>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="input-field col s12 m12">
+						<textarea id="info-device"  class="materialize-textarea validate" value="{{getDevice.info}}"></textarea>
+						<label for="info-device" class="active">Informações</label>
+					</div>
+				</div>
+
+				<div class="divider"></div>
+
+				<div class="row space-form">
+					<button class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" type="submit" name="action">Salvar
+						<i class="mdi-content-save right"></i>
+					</button>
+					<a class="waves-effect waves-red btn-flat right modallbtn" href="device"><i class="material-icons right">cancel</i>Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>

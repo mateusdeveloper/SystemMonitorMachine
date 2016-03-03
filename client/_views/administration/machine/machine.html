@@ -1,0 +1,97 @@
+<!--================================================================================
+@file         machine.html
+@version      0.0.1
+@path         client/_views/cpanel/machine
+@description  Renderiza a lista de Máquinas existentes
+@author       MateusCardoso
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="machine">
+	{{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+
+	<div class="card mycard">
+		<div class="section">
+			{{#if isInRole 'God, SysAdm, Adm'}}
+			<!-- <a class="tooltipped btn-floating btn-large waves-effect waves-light light-blue darken-2 right margin-bottom" href="formInsertMachine" data-tooltip="Adicionar Máquina"><i class="material-icons">add</i></a> -->
+			<a class="tooltipped btn-floating btn-large waves-effect waves-light light-blue darken-2 right margin-bottom modal-trigger" data-target="selectTypeMachine" data-tooltip="Adicionar Máquina"><i class="material-icons">add</i></a>
+			{{/if}}
+			<h5>Lista de Máquinas</h5>
+			<div class="divider"></div>
+			<table class="striped responsive compact" id="data-table-machine">
+				<thead>
+					<tr>
+						<th>Máquina</th>
+						<th class="hide-on-med-and-down">Número de Série</th>
+						<th class="hide-on-med-and-down">Empresa</th>
+						<th>Status</th>
+						<th>Operação</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{{#each getMachines}}
+					<tr>
+						<td>{{name}}</td>
+						<td class="hide-on-med-and-down">{{serialnumber}}</td>
+						<td class="hide-on-med-and-down">{{getCompanyName _idCompany}}</td>
+						<td><span class="col s6 white-text center-align {{printSysStatusColor sysstatus}}">{{printSysStatusString sysstatus}}</span></td>
+						<td><span class="col s6 white-text center-align {{printStatusColor status}}">{{printStatusString status}}</span></td>
+						<td>
+							<a class="tooltipped waves-effect btn-flat btn-floating right update-machine-button" data-tooltip="Editar"><i class="mdi-editor-mode-edit myflatbtn"></i></a>
+							{{#if isInRole 'God, SysAdm, Adm'}}
+							<a class="tooltipped waves-effect btn-flat btn-floating right modal-trigger delete-machine-button" data-tooltip="Deletar" data-target="deleteMachine"><i class="mdi-action-delete myflatbtn"></i></a>
+							{{/if}}
+							{{#if testSysStatusNotAssociated sysstatus}}
+							<a class="tooltipped waves-effect btn-flat btn-floating right modal-trigger emergency-machine-button" data-target="emergencyMachine" data-tooltip="Emergências"><i class="mdi-action-settings myflatbtn"></i></a>
+							{{#if isInRole 'God, SysAdm, Adm'}}
+							<a class="tooltipped waves-effect btn-flat btn-floating right modal-trigger uptadestatus-machine-button" data-tooltip="Status" data-target="statusMachine"><i class="mdi-action-info-outline myflatbtn"></i></a>
+							{{/if}}
+							{{/if}}
+
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<div class="divider"></div>
+		</div>
+	</div>
+
+	<!-- MODAL DELETAR MACHINE -->
+	<div id="deleteMachine" class="mymodal">
+		{{>deleteMachineModal}}
+	</div>
+
+	<!-- MODAL STATUS MACHINE -->
+	<div id="statusMachine" class="mymodal">
+		{{>statusMachineModal}}
+	</div>
+
+	<!-- MODAL EMERGENCY MACHINE -->
+	<div id="emergencyMachine" class="mymodal">
+		{{>emergencyMachineModal}}
+	</div>
+
+	<!-- MODAL EMERGENCY MACHINE -->
+	<div id="selectTypeMachine" class="mymodal">
+		{{>selectTypeMachineModal}}
+	</div>
+
+
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>

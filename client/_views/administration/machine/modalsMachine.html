@@ -1,0 +1,189 @@
+<!--================================================================================
+@file         modalsMachine.html
+@version      0.0.1
+@path         client/_views/cpanel
+@description  Renderiza as modais de Add/Edit devices.
+@author       MateusCardoso
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="deleteMachineModal">
+  <div class="center section">
+    <div class="modal-content">
+      <h5>Deseja realmente excluir a máquina: <b>{{getMachine.name}}</b>?</h5>
+      <div class="divider margin-bottom"></div>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="confirmDelete"><i class="material-icons left">save</i>Confirmar</a>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" ><i class="material-icons left">close</i>Cancelar</a>
+    </div>
+  </div>
+</template>
+
+
+<template name="emergencyMachineModal">
+  <div class="center section">
+    <div class="modal-content">
+      <h5>Eventos de <b>EMERÊNGIA</b> da Máquina: <b>{{getMachine.name}}</b></h5>
+      <div class="divider margin-bottom"></div>
+      <div class="card mycard">
+        <div class="section">
+          <form id="emergency-machine-form">
+            <div class="row">
+              <!-- PRIMEIRO CARD -->
+              <div class="col s12 m10 offset-m1">
+                <ul class="collection">
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text text-darken-3 left-align">Emergência</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">
+                        <div class="switch">
+                          <label>
+                            Off
+                            <input type="checkbox" id="switchEmergencia" {{checked getMachinesInputs.Inputs.emergency '1'}}>
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text text-darken-3 left-align">Trava Externa</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">
+                        <div class="switch">
+                          <label>
+                            Off
+                            <input type="checkbox" id="switchTravaExterna" {{checked getMachinesInputs.Inputs.extLock '1'}}>
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text text-darken-3 left-align">Trava Interna</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">
+                        <div class="switch">
+                          <label>
+                            Off
+                            <input type="checkbox" id="switchTravaInterna" {{checked getMachinesInputs.Inputs.intLock '1'}}>
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="collection-item">
+                    <div class="row">
+                      <div class="col s6 grey-text text-darken-3 left-align">Iluminação</div>
+                      <div class="col s6 grey-text text-darken-4 right-align">
+                        <div class="switch">
+                          <label>
+                            Off
+                            <input type="checkbox" id="switchIluminacao" {{checked getMachinesInputs.Inputs.lights '1'}}>
+                            <span class="lever"></span>
+                            On
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <div class="divider"></div>
+                </ul>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close modal-action btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="save-emergency-machine-button"><i class="material-icons left">save</i>Confirmar</a>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" id="cancel-emergency-machine-button"><i class="material-icons left">close</i>Cancelar</a>
+    </div>
+  </div>
+</template>
+
+
+<template name="statusMachineModal">
+  <div class="center section">
+    <div class="modal-content">
+      <h5>Status da Máquina: <b>{{getMachine.name}}</b></h5>
+      <div class="divider margin-bottom"></div>
+      <div class="card mycard">
+        <div class="section">
+          <form id="status-machine-form">
+            <div class="row align-center">
+              <div class="col s12 m4 l2">
+                <p>
+                  <input name="sysstatus" type="radio" value="0" id="inactive" {{checked getMachine.sysstatus '0'}}/>
+                  <label for="inactive">Inativo</label>
+                </p>
+              </div>
+              <div class="col s12 m4 l2">
+                <p>
+                  <input name="sysstatus" type="radio" value="1" id="active" {{checked getMachine.sysstatus '1'}}/>
+                  <label for="active">Ativo</label>
+                </p>
+              </div>
+              <div class="col s12 m4 l4">
+                <p>
+                  <input name="sysstatus" type="radio" value="2" id="maintenance" {{checked getMachine.sysstatus '2'}}/>
+                  <label for="maintenance">Em Manutenção</label>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="save-status-machine-button"><i class="material-icons left">save</i>Confirmar</a>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" id="cancel-status-machine-button"><i class="material-icons left">close</i>Cancelar</a>
+    </div>
+  </div>
+</template>
+
+
+<template name="selectTypeMachineModal">
+  <div class="center section">
+    <div class="modal-content">
+      <h5>Selecione um <b>Tipo de Máquina</b> e uma <b>Empresa</b></h5>
+      <div class="divider margin-bottom"></div>
+      <div class="card mycard" style="overflow: visible">
+        <div class="section">
+          <div class="row">
+            <div class="input-field col s12">
+              <select id="select-machine-type">
+                <option value="" disabled selected>Tipo da máquina...</option>
+                {{#each getMachineType}}
+                <option value="{{_id}}">{{description}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="row">
+            <div class="input-field col s12">
+              <select id="select-company">
+                <option value="" disabled selected>Empresa ...</option>
+                {{#each getCompany}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="confirm-select-type-machine-button"><i class="material-icons left">save</i>Confirmar</a>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" id="close-select-type-machine-button"><i class="material-icons left">close</i>Cancelar</a>
+    </div>
+  </div>
+</template>

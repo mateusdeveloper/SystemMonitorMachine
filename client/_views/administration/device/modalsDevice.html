@@ -1,0 +1,83 @@
+<!--================================================================================
+@file         modalsDevice.html
+@version      0.0.1
+@path         client/_views/cpanel
+@description  Renderiza as modais de Add/Edit devices.
+@author       MateusCardoso
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<!-- TEMPLATE DELETE DISPOSITIVO -->
+<template name="deleteDeviceModal">
+  <div class="center section">
+    <div class="modal-content">
+      <h5>Deseja realmente excluir o dispositivo: <b>{{getDevice.name}}</b>?</h5>
+      <div class="divider margin-bottom"></div>
+      {{#if getMachineAssociatedFind}}
+      <div class="row center">
+        <div class="col s10 offset-s1">
+          <div class="card">
+            <div class="card-content red white-text">
+              <h3 class="title center">ATENÇÃO!</h3>
+              <div class="divider"></div>
+              <h5 class="left">A Máquina <b>{{getMachineAssociated.name}}</b> está associada a este dispositivo!</h5>
+              <p>Ao <b> CONFIRMAR A DELEÇÃO </b>, a Máquina será desassociada deste dispositivo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="confirmDelete"><i class="material-icons left">save</i>Confirmar</a>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" ><i class="material-icons left">close</i>Cancelar</a>
+    </div>
+  </div>
+</template>
+
+
+<template name="statusDeviceModal">
+  <div class="center section">
+    <div class="modal-content">
+      <h5>Status da Máquina: <b>{{getDevice.name}}</b></h5>
+      <div class="divider margin-bottom"></div>
+      <div class="card mycard">
+        <div class="section">
+          <form>
+            <div class="row align-center">
+              <div class="col s12 m4 l2">
+                <p>
+                  <input name="sysstatus" type="radio" value="0" id="inactive" {{checked getDevice.sysstatus '0'}}/>
+                  <label for="inactive">Inativo</label>
+                </p>
+              </div>
+              <div class="col s12 m4 l2">
+                <p>
+                  <input name="sysstatus" type="radio" value="1" id="active" {{checked getDevice.sysstatus '1'}}/>
+                  <label for="active">Ativo</label>
+                </p>
+              </div>
+              <div class="col s12 m4 l4">
+                <p>
+                  <input name="sysstatus" type="radio" value="2" id="maintenance" {{checked getDevice.sysstatus '2'}}/>
+                  <label for="maintenance">Em Manutenção</label>
+                </p>
+              </div>
+              <div class="col s12 m4 l4">
+                <p>
+                  <input name="sysstatus" type="radio" value="3" id="associated" {{checked getDevice.sysstatus '3'}}/>
+                  <label for="associated">Desassociar da Máquina atual</label>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    <a class="modal-close btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="confirm-update-device-button"><i class="material-icons left">save</i>Confirmar</a>
+    <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" id="cancel-update-device-button"><i class="material-icons left">close</i>Cancelar</a>
+    </div>
+  </div>
+</template>

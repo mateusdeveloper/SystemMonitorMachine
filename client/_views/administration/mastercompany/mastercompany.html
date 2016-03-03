@@ -1,0 +1,69 @@
+<!--================================================================================
+@file         mastercompany.html
+@version      0.0.1
+@path         client/_views/cpanel/mastercompany
+@description  Renderiza a lista de Dispositivos de Aquisição existentes
+@author       MateusCardoso
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="mastercompany">
+	{{#if isInRole 'God'}}
+
+	<div class="card mycard">
+		 <div class="section">
+        <a class="tooltipped btn-floating btn-large waves-effect waves-light light-blue darken-2 right margin-bottom" href="formInsertMasterCompany" data-tooltip="Adicionar Empresa Mãe"><i class="material-icons">add</i></a>
+        <h5>Lista de Companias</h5>
+        <div class="divider"></div>
+        <table class="striped responsive compact" id="data-table-mastercompany" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>CNPJ</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each getMasterCompany}}
+            <tr>
+              <td>{{name}}</td>
+              <td>{{cnpj}}</td>
+              <td>{{Contact.email}}</td>
+              <td>{{Contact.phone}}</td>
+              <td>
+                <a class="tooltipped waves-effect btn-flat btn-floating right update-master-company-button" data-tooltip="Editar"><i class="mdi-editor-mode-edit myflatbtn"></i></a>
+                {{#if notOwnMasterCompany this}}
+                <a class="tooltipped waves-effect btn-flat btn-floating right modal-trigger master-company-delete-button" data-tooltip="Deletar" data-target="deleteMasterCompany"><i class="mdi-action-delete myflatbtn"></i></a>
+                {{/if}}
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div class="divider"></div>
+      </div>
+	</div>
+
+<!-- MODAL DELETAR EMRPESA -->
+<div id="deleteMasterCompany" class="mymodal">
+  {{>deleteMasterCompanyModal}}
+</div>
+
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>

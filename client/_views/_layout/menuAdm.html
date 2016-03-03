@@ -1,0 +1,93 @@
+<!--================================================================================
+@file         entriesSideNav.html
+@version      0.0.1
+@path         client/views/_layout
+@description  Menú para Cadastros.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com/mateus
+@copyright    Copyright SANOVA Inovação em Saneamento Ltda.
+================================================================================ -->
+
+<template name="menuAdm">
+	<ul id="menuadm" class="side-nav fixed">
+		{{#if isInRole 'SysAdm'}}
+		{{#if isInRole 'God'}}
+		<li id="mastercompany">
+			<a href="mastercompany" class="waves-effect waves-block waves-light" >
+				<i class="tiny material-icons">work</i> Companias
+			</a>
+		</li>
+		{{/if}}
+		<li id="company">
+			<a href="company" class="waves-effect waves-block waves-light" >
+				<i class="tiny material-icons">business</i> Empresas
+			</a>
+		</li>
+		<li id="users">
+			<a href="user" class="waves-effect waves-block waves-light" >
+				<i class="tiny material-icons">person</i> Usuários
+			</a>
+		</li>
+		<li id="machine" class="menu-left-dropdown">
+			<ul class="collapsible collapsible-accordion">
+				<li id="dropdownmachine" class="menu-left-dropdown">
+					<a id="admmachine" class="waves-effect waves-block waves-light collapsible-header collapsible-header-adm"><i class="adm material-icons">cast</i>Máquinas<i class="adm2 mdi-navigation-arrow-drop-down right"></i></a>
+					<div class="collapsible-body">
+						<ul class="submenudropdown">
+							{{#if isInRole 'God'}}
+							<li id="typemachine">
+								<a href="typeMachine" class="waves-effect waves-block waves-light">Tipos de Máquinas</a>
+							</li>
+							{{/if}}
+							<li id="registermachine">
+								<a href="machine" class="waves-effect waves-block waves-light">Cadastro de Máquinas</a>
+							</li>
+<!-- 							<li id="profilemachine">
+								<a href="profileMachine" class="waves-effect waves-block waves-light">Lista de Dados</a>
+							</li>
+							<li id="eventsmachine">
+								<a href="eventsMachine" class="waves-effect waves-block waves-light">Lista de Eventos</a>
+							</li> -->
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</li>
+		<li id="device">
+			<a href="device" class="waves-effect waves-block waves-light">
+				<i class="tiny material-icons">router</i> Dispositivos de Aquisição
+			</a>
+		</li>
+		{{/if}}
+		{{#if isInRole 'Adm'}}
+		<li id="users">
+			<a href="user" class="waves-effect waves-block waves-light" >
+				<i class="tiny material-icons">person</i> Usuários
+			</a>
+		</li>
+		<li id="machine">
+			<a href="machine" class="waves-effect waves-block waves-light" >
+				<i class="tiny material-icons">cast</i> Máquinas
+			</a>
+		</li>
+		<li id="device">
+			<a href="device" class="waves-effect waves-block waves-light">
+				<i class="tiny material-icons">router</i> Dispositivos de Aquisição
+			</a>
+		</li>
+		{{/if}}
+		{{#if isInRole 'Supervisor'}}
+		<li id="users">
+			<a href="user" class="waves-effect waves-block waves-light" >
+				<i class="tiny material-icons">person</i> Usuários
+			</a>
+		</li>
+		<li id="machine">
+			<a href="machine" class="waves-effect waves-block waves-light" >
+				<i class="tiny material-icons">cast</i> Máquinas
+			</a>
+		</li>
+		{{/if}}
+
+	</ul>
+</template>

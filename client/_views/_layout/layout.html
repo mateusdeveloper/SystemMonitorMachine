@@ -1,0 +1,47 @@
+<!--================================================================================
+@file         layout.html
+@version      0.0.1
+@path         client/views/_layout
+@description  Estrutura dos Layout's padrões do sistema.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="layoutDefault">
+  {{#if currentUser}}
+  {{>header}}
+  <main id="main">
+    <div class="section">
+      {{>yield}}
+    </div>
+  </main>
+  {{>footer}}
+  {{else}}
+  {{>signIn}}
+  {{/if}}
+</template>
+
+<template name="layoutAdmin">
+  {{#if currentUser}}
+  {{>header}}
+  {{>menuAdm}}
+  <main id="main">
+    <div class="section">
+      {{>yield}}
+    </div>
+  </main>
+  {{>footer}}
+  {{else}}
+  {{>signIn}}
+  {{/if}}
+</template>
+
+<template name="layoutLogin">
+  <main>
+    <div class="section">
+      {{>yield}}
+    </div>
+  </main>
+  {{>footer}}
+</template>

@@ -1,0 +1,134 @@
+<!--================================================================================
+@file         notifications.html
+@version      0.0.1
+@path         client/_views/notifications
+@description  Renderiza as visão de notificações no sistema.
+@author       MateusCardoso
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="notifications">
+	{{#if isInRole 'Developer'}}
+	<div class="card mycard">
+		<div class="section">
+			<a class="btn-floating btn-small waves-effect waves-light red right modal-trigger" data-target="addNotification"><i class="material-icons">add</i></a>
+			<div id="notifications"> <h5>Assinaturas de Notificações</h5></div>
+			<div class="divider"></div>
+			<div class="row">
+				<div class="col s12 m12 l12">
+					<table id="data-table-notification-profiles" class="striped responsive compact" cellspacing="0">
+						<thead>
+							<tr>
+								<th>Máquina</th>
+								<th class="center">Notificando</th>
+								<th>Status</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Maquina 1</td>
+								<td>
+									<p class="col s4 offset-s2">
+										<input type="checkbox" id="filled-in-box1" checked="checked" disabled="disabled" />
+										<label for="filled-in-box1">Estado de Máquina</label>
+									</p>
+									<p class="col s4">
+										<input type="checkbox" id="filled-in-box2" disabled="disabled" />
+										<label for="filled-in-box2">Erro de Operador</label>
+									</p>
+								</td>
+								<td>
+									<a>ATIVO</a>
+								</td>
+								<td><a class="waves-effect btn-flat btn-floating right modal-trigger" data-target="editNotification"><i class="mdi-editor-mode-edit myflatbtn"></i></a></td>
+							</tr>
+							<tr>
+								<td>Maquina 2</td>
+								<td>
+									<p class="col s4 offset-s2">
+										<input type="checkbox" id="filled-in-box3" checked="checked" disabled="disabled" />
+										<label for="filled-in-box3">Estado de Máquina</label>
+									</p>
+									<p class="col s4">
+										<input type="checkbox" id="filled-in-box4" disabled="disabled" />
+										<label for="filled-in-box4">Erro de Operador</label>
+									</p>
+								</td>
+								<td>
+									<p>INATIVO</p>
+								</td>
+								<td><a class="waves-effect btn-flat btn-floating right modal-trigger" data-target="editNotification"><i class="mdi-editor-mode-edit myflatbtn"></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- CARD DE NOTIFICACOES -->
+	<div class="card mycard">
+		<div class="section">
+			<div> <h5>Notificações</h5></div>
+			<div class="divider"></div>
+			<div class="row">
+				<table id="data-table-notifications" class="display stripe responsive compact col s12" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Máquina</th>
+							<th>Horário Inicial / Final</th>
+							<th>Descrição Evento</th>
+							<th>Responsável</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Máquina 1</td>
+							<td>27/07/2015 - hh:mm<br>27/07/2015 - hh:mm<br></td>
+							<td>Erro de Operador</td>
+							<td>gerente@hb.com</td>
+						</tr>
+						<tr>
+							<td>Máquina 1</td>
+							<td>27/07/2015 - hh:mm<br>27/07/2015 - hh:mm<br></td>
+							<td>Estado de Máquina</td>
+							<td>gerente@hb.com</td>
+						</tr>
+						<tr>
+							<td>Máquina 1</td>
+							<td>27/07/2015 - hh:mm<br>27/07/2015 - hh:mm<br></td>
+							<td>Erro de Operador</td>
+							<td>gerente@hb.com</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!-- MODAL ADICIONAR PERFIL NOTIFICAÇÃO -->
+	<div id="addNotification" class="mymodal">
+		{{>addNotificationModal}}
+	</div>
+
+	<!-- MODAL EDITAR PERFIL NOTIFICAÇÃO -->
+	<div id="editNotification" class="mymodal">
+		{{>editNotificationModal}}
+	</div>
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content light-blue darken-4 white-text">
+					<h1 class="title center">EM CONSTRUÇÃO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Nossa equipe de desenvolvimento está finalizando esta funcionalidade!<br>Disponível em breve!.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>

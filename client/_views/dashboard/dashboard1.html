@@ -1,0 +1,148 @@
+<!--================================================================================
+@file         dashboard1.html
+@version      0.0.1
+@path         client/_views/dashboard
+@description  Renderiza a visão de dashboards do sistema.
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="dashboard1">
+
+	<p><h5><b>{{getMachine.name}}</b> - <span class="{{printStatusColor getMachine.status}}">{{printStatusString getMachine.status}}</span></h5></p>
+	<div class="divider"></div>
+
+	<!-- INICIO TABS -->
+	<div class="row">
+		<div class="col s12 m6 l3">
+			<div class="card">
+				<div class="card-content grey darken-2 white-text center">
+					<p class="card-stats-title"><h5><i class="material-icons">timer</i> Horímetro</h5></p>
+					<h4 class="card-stats-number">{{getHourCounter}}</h4>
+					<div class="divider"></div>
+					<div class="col s6 m12 grey darken-2 font-dash-1">
+						Último Dado Recebido {{getLastData}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l3">
+			<div class="card">
+				<div class="card-content blue darken-1 white-text center">
+					<p class="card-stats-title"><h5><i class="material-icons">settings</i> Produção</h5></p>
+					<h4 class="card-stats-number">12 un.</h4>
+					<div class="divider"></div>
+					<div class="col s6 m12 blue darken-1 font-dash-1">
+						77 un. produzidas hoje
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l3">
+			<div class="card">
+				<div class="card-content blue darken-4 white-text center">
+					<p class="card-stats-title"><h5><i class="material-icons">trending_up</i> Velocidade</h5></p>
+					<h4 class="card-stats-number"> {{getMachineSpeed}} (m/min)</h4>
+					<div class="divider"></div>
+					<div class="col s6 m12 blue darken-4 font-dash-1">
+						Máx: {{getMaxSpeed}} - Mín: {{getMinSpeed}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{{#if getTemperatureLimits}}
+		<div class="col s12 m6 l3">
+			<div class="card">
+				<div class="card-content green darken-2 white-text center">
+					<p class="card-stats-title"><h5><i class="material-icons">schedule</i> {{getMachineValues.[0]}}</h5></p>
+					<h4 class="card-stats-number">{{getLastTemp}} °C</h4>
+					<div class="divider"></div>
+					<div class="col s12 m12 green darken-2 font-dash-1">
+						Máx: {{getMaxTemp}} - Mín: {{getMinTemp}}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{else}}
+		<div class="col s12 m6 l3">
+			<div class="card">
+				<div class="card-content red darken-2 white-text center">
+					<p class="card-stats-title"><h5><i class="material-icons">schedule</i> {{getMachineValues.[0]}}</h5></p>
+					<h4 class="card-stats-number">{{getLastTemp}}</h4>
+					<div class="divider"></div>
+					<div class="col s12 m12 red darken-2 font-dash-1">
+						Máx: {{getMaxTemp}} - Mín: {{getMinTemp}}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/if}}
+
+	</div>
+
+	<div class="card">
+		<!-- HISTORICO -->
+		<div id="">
+			<!--<a class="tooltipped btn-floating waves-effect waves-light btn-large light-blue darken-2 activator dont-scroll-me right" data-tooltip="Imprimir"><i class="material-icons left">print</i></a>-->
+			<div class="section card-content">
+				<div class="row">
+					<div id="mecaguei" class="col s12">
+						<table id="data-table-dashboard1" class="striped responsive compact" cellspacing="0">
+							<thead>
+								<tr>
+									<!-- <th>Status</th> -->
+									<th>Estado de Máquina</th>
+									<th>Horário inicial</th>
+									<th>Horário Final</th>
+									<th>Velocidade (m/min)</th>
+									{{#each getMachineProfile}}
+									<th>{{[0]}} {{[1]}}</th>
+									{{/each}}
+									<th>Informativos</th>
+
+									<!-- <th>Nível do Óleo</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								{{#each getMachineData}}
+								<tr>
+									{{#if HardwareSignals.InDigs.[0].InDig0.[0]}}
+									<td class="green">LIGADA</td>
+									<td class="green">{{formatDateDash datetimedata}}</td>
+									<td class="green">{{formatDateDash datetimedata}}</td><!-- MODIFICAR POIS NÃO É A HORA FINAL -->
+									<td class="green">{{lastOf HardwareSignals.InAnls.[0].InAnl0}}</td>
+									<td class="green">{{lastOf HardwareSignals.InAnls.[1].InAnl1}}</td>
+									<td class="green">{{lastOf HardwareSignals.InAnls.[2].InAnl2}}</td>
+									<td class="green"><a class="tooltipped waves-effect btn-flat btn-floating btn-large blue right modal-trigger modal-button" data-tooltip="Info" data-target="infoDashboardModal"><i class="small material-icons">info_outline</i></a></td>
+									{{else}}
+									<td class="red">DESLIGADA</td>
+									<td class="red">{{formatDateDash datetimedata}}</td>
+									<td class="red">{{formatDateDash datetimedata}}</td><!-- MODIFICAR POIS NÃO É A HORA FINAL -->
+									<td class="red">{{lastOf HardwareSignals.InAnls.[0].InAnl0}}</td>
+									<td class="red">{{lastOf HardwareSignals.InAnls.[1].InAnl1}}</td>
+									<td class="red">{{lastOf HardwareSignals.InAnls.[2].InAnl2}}</td>
+									<td class="red"><a class="tooltipped waves-effect btn-flat btn-floating btn-large blue right modal-trigger modal-button" data-tooltip="Info" data-target="infoDashboardModal"><i class="small material-icons">info_outline</i></a></td>
+									{{/if}}
+								</tr>
+								{{/each}}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- MODAL ADICIONAR INFO DA TABELA-->
+	<div id="infoDashboardModal" class="mymodal">
+		{{>infoDashboardModal}}
+	</div>
+
+	<!-- MODAL CONFIRMAR ACTION
+	<div id="confirmAction" class="mymodal">
+		{{>confirmActionModal}}
+	</div>-->
+</template>

@@ -1,0 +1,259 @@
+<!-- ================================================================================
+@file         modalsDashboard.html
+@version      0.0.1
+@path         client/_views/dashboard
+@description  Renderiza as Modais de Dashboard
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<!-- TEMPLATE MODAL ADD TIMELINEEVENT -->
+<template name="insertTimelineEventModal">
+  <div class="modal-content center section dash-event-modal-scroll">
+    <h5>Adicionar Evento</h5>
+    <div class="divider"></div>
+    {{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+    <div class="section">
+      <form>
+        <div class="row">
+          <div class="input-field col s10 offset-s1">
+            <select id="eventType">
+              <option value="" disabled selected>Escolha um Tipo de Evento</option>
+              {{#each getTypes}}
+              <option value="{{type}}">{{type}}</option>
+              {{/each}}
+            </select>
+            <label>Tipo de Evento:</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col s10 offset-s1">
+            {{#each getEvents}}
+            <p class="col s12 m4">
+              <input name="group1" type="radio" id="{{description}}" value="{{description}}">
+              <label for="{{description}}">{{description}}</label>
+            </p>
+            {{/each}}
+          </div>
+        </div>
+        <div class="row">
+          <form id="description-form">
+            <div class="input-field col s12">
+              <textarea id="eventDescription" class="materialize-textarea"></textarea>
+              <label for="eventDescription">Descrição do Evento:</label>
+            </div>
+          </form>
+        </div>
+      </form>
+    </div>
+    {{else}}
+    <form>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header active" id="firstStep"><i class="material-icons">subject</i>Tipo do Evento</div>
+          <div class="collapsible-body">
+            <div class="row">
+              {{#each getTypes}}
+              <div class="col s4">
+                <div class="card {{color}} option-card">
+                  <div class="card-content">
+                    <span class="card-title">
+                      <i class="material-icons medium center col s12">{{icon}}</i>{{type}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header" id="secondStep"><i class="material-icons">info</i>Evento</div>
+          <div class="collapsible-body">
+            <div class="row">
+              {{#each getEvents}}
+              <p class="col s12 m6">
+                <input name="group1" type="radio" class="event-option" id="{{description}}" value="{{description}}">
+                <label for="{{description}}" class="spacious">{{description}}</label>
+              </p>
+              {{/each}}
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header" id="thirdStep"><i class="material-icons">description</i>Descrição</div>
+          <div class="collapsible-body">
+            <div class="row">
+              <form id="description-form">
+                <div class="input-field col s12">
+                  <textarea id="eventDescription" class="materialize-textarea"></textarea>
+                  <label for="eventDescription">Descrição do Evento:</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </form>
+    {{/if}}
+
+    <div class="row">
+      <div class="modal-footer">
+        <a class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" id="insertTimelineEvents"><i class="material-icons left">save</i>Confirmar</a>
+        <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" id="close-event-modal"><i class="material-icons left">close</i>Cancelar</a>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<!-- TEMPLATE CONFIRM ACTION -->
+<template name="confirmActionModal">
+  <div class="row section card-content grey lighten-4 center regular s12 m6">
+    <h4>Deseja mesmo?</h4>
+    <div class="divider"></div>
+    <div style="margin-top: 3%">
+      <a class="modal-action modal-close btn btn-small waves-effect waves-light red center modalbtn" title="Cancelar" id="close-delete-device"><i class="material-icons">not_interested</i></a>
+      <a class="modal-close btn btn-small waves-effect waves-light green center modalbtn" type="submit" id="confirmDelete" name="confirmDelete" title="Confirmar"><i class="material-icons">done</i></a>
+    </div>
+  </div>
+</template>
+
+<!-- TEMPLATE CONFIRM ACTION -->
+<template name="infoDashboardModal">
+  <div class="row">
+   <div class="col s12">
+    <div class="card">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h6><b>Nome Máquina</b></h6>
+        </div>
+      </div>
+
+      <div class="col s12">
+        <ul class="tabs z-depth-1">
+          <li class="tab col s6 waves-effect"><a class="active blue-text text-darken-3" href="#chart">Grafíco</a></li>
+          <li class="tab col s6 waves-effect"><a class="blue-text text-darken-3" href="#table" id="click-table">Tabela</a></li>
+        </ul>
+      </div>
+
+      <div id="chart" class="col s12">
+        <div class="section">
+          <div class="divider"></div>
+
+          <div class="row">
+            <div class="col s12 m12">
+             <h6><b>Visualizando informações do período:</b></h6>
+             {{slider.[0]}} <b> até </b> {{slider.[1]}}
+             <form>
+               <p class="range-field">
+                 <div type="range" class="slider" name="slider" id="slider" min="0" max="100"></div>
+               </p>
+             </form>
+           </div>
+         </div>
+
+         <div class="row">
+           <div class="col s12">
+            <div class="card">
+              <div class="card-move-up">
+                <div class="move-up blue lighten-2">
+                  <div>
+                    <span class="chart-title white-text"></span>
+                  </div>
+                  <div class="row">
+                    <div class="col s12">
+                      <div class="trending-line-chart-wrapper">
+                        <canvas id="trending-line-chart-info-modal" class="maps-size-dashboard-modal"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<!--
+          <div class="col s12 m3">
+           <h6><b>Informativos:</b></h6>
+           <div class="col s12">
+            <input type="checkbox" id="temp" />
+            <label for="temp">Temperatura</label>
+          </div>
+          <div class="col s12">
+            <input type="checkbox" id="press" />
+            <label for="press">Pressão</label>
+          </div>
+          <div class="col s12">
+            <input type="checkbox" id="speed" />
+            <label for="speed">Velocidade</label>
+          </div>
+        </div>-->
+      </div>
+
+    </div>
+  </div>
+
+  <div id="table" class="col s12">
+    <div class="section card-content">
+      <div class="row">
+        <div class="col s12">
+         <h6><b>Visualizando informações do período:</b></h6>
+         {{sliderDatatable.[0]}} <b> até </b> {{sliderDatatable.[1]}}
+         <form>
+           <p class="range-field">
+             <div type="range" class="sliderDatatable" name="sliderDatatable" id="sliderDatatable" min="0" max="100"></div>
+           </p>
+         </form>
+       </div>
+     </div>
+     <div class="row">
+      <div class="col s12">
+       <table id="data-table-dashboard-modal" class="striped responsive compact" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Estado de Máquina</th>
+            <th id="click-modal">Horário inicial</th>
+            <th>Horário Final</th>
+            <th>Velocidade (m/min)</th>
+            {{#each getMachineProfileModal}}
+            <th>{{[0]}} {{[1]}}</th>
+            {{/each}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each getMachineDataModal}}
+          <tr>
+            {{#if HardwareSignals.InDigs.[0].InDig0.[0]}}
+            <td class="green center">LIGADA</td>
+            <td class="green center">{{formatDateDash datetimedata}}</td>
+            <td class="green center">{{formatDateDash datetimedata}}</td><!-- MODIFICAR POIS NÃO É A HORA FINAL -->
+            <td class="green center">{{lastOf HardwareSignals.InAnls.[0].InAnl0}}</td>
+            <td class="green center">{{lastOf HardwareSignals.InAnls.[1].InAnl1}}</td>
+            <td class="green center">{{lastOf HardwareSignals.InAnls.[2].InAnl2}}</td>
+            {{else}}
+            <td class="red center">DESLIGADA</td>
+            <td class="red center">{{formatDateDash datetimedata}}</td>
+            <td class="red center">{{formatDateDash datetimedata}}</td><!-- MODIFICAR POIS NÃO É A HORA FINAL -->
+            <td class="red center">{{lastOf HardwareSignals.InAnls.[0].InAnl0}}</td>
+            <td class="red center">{{lastOf HardwareSignals.InAnls.[1].InAnl1}}</td>
+            <td class="red center">{{lastOf HardwareSignals.InAnls.[2].InAnl2}}</td>
+            {{/if}}
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="modal-footer">
+    <a class="btn btn-small modal-action modal-close waves-effect waves-light light-blue right darken-2 modalrbtn space-right"><i class="material-icons left">save</i>Confirmar</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</template>

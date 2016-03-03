@@ -1,0 +1,198 @@
+<!--================================================================================================================
+@file         formsUser.html
+@version      0.0.1
+@path         client/views/cpanel/machine
+@description  Renderiza formulários de Inserir/Editar Usuários.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================================================= -->
+
+<!-- ************************************************************************************************************ -->
+<!-- INSERT                                                                                                       -->
+<!-- ************************************************************************************************************ -->
+<template name="formInsertUser">
+	{{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+	<h5>Inserir Usuário</h5>
+	<div class="card mycard">
+		<div class="section">
+
+			<form id="insert-user-form" name="insertUserForm">
+
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<input id="newName" type="text">
+						<label for="newName">Nome Completo<span id="name-error"></span></label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="newEmail" type="email">
+						<label for="newEmail">Email<span id="email-error"></span></label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<input id="newPassword" type="password">
+						<label for="newPassword">Senha<span id="password-error"></span></label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="newPasswordAgain" type="password">
+						<label for="newPasswordAgain">Confirmar a Senha<span id="passwordagain-error"></span></label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<select id="rolepicker">
+							<option value="" disabled selected>Função...</option>
+							{{#if isInRole 'God, SysAdm'}}
+							<option value="SysAdm" {{selected getUser.roles 'SysAdm'}}>Administrador do Sistema</option>
+							{{/if}}
+							{{#if isInRole 'God, SysAdm, Adm'}}
+							<option value="Adm">Administrador</option>
+							{{/if}}
+							{{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+							<option value="Supervisor">Supervisor</option>
+							{{/if}}
+							<option value="Operator">Operador</option>
+						</select>
+						<label class="active">Função<span id="role-error"></span></label>
+					</div>
+
+					{{#if isInRole 'God'}}
+					<div class="input-field col s12 m6 {{showHideMaster}}">
+						<select id="select-master-company">
+							<option value="" disabled selected>Compania...</option>
+							{{#each getMasterCompany}}
+							<option value="{{_id}}">{{name}}</option>
+							{{/each}}
+						</select>
+						<label class="active">Compania</label>
+					</div>
+					{{/if}}
+					<div class="input-field col s12 m6 {{showHideCompany}}">
+						<select id="select-company">
+							<option value="" disabled selected>Empresa...</option>
+							{{#each getCompany}}
+							<option value="{{_id}}">{{name}}</option>
+							{{/each}}
+						</select>
+						<label class="active">Empresa</label>
+					</div>
+
+				</div>
+
+				<div class="divider"></div>
+
+				<div class="row space-form">
+					<button class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" type="submit" name="action">Salvar<i class="mdi-content-save right"></i>
+					</button>
+					<a class="waves-effect waves-red btn-flat right modallbtn" href="user"><i class="material-icons right">cancel</i>Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>
+
+
+
+<!-- ************************************************************************************************************ -->
+<!-- UPDATE -->
+<!-- ************************************************************************************************************ -->
+<template name="formUpdateUser">
+	{{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+	<h5>Editar Usuário - <b>{{getUser.profile.name}}</b></h5>
+	<div class="card mycard">
+		<div class="section">
+			<form id="update-user-form" name="updateUserForm">
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<input id="newName" type="text" value="{{getUser.profile.name}}">
+						<label for="newName" class="active">Nome<span id="name-error"></span></label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="newEmail" type="email" value="{{getUser.emails.[0].address}}" active>
+						<label for="newEmail" class="active">Email<span id="email-error"></span></label>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<select id="rolepicker">
+							<option value="" disabled selected>Função...</option>
+							{{#if isInRole 'God, SysAdm'}}
+							<option value="SysAdm" {{selected getUser.roles 'SysAdm'}}>Administrador do Sistema</option>
+							{{/if}}
+							{{#if isInRole 'God, SysAdm, Adm'}}
+							<option value="Adm" {{selected getUser.roles 'Adm'}}>Administrador</option>
+							{{/if}}
+							{{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+							<option value="Supervisor" {{selected getUser.roles 'Supervisor'}}>Supervisor</option>
+							{{/if}}
+							<option value="Operator" {{selected getUser.roles 'Operator'}}>Operador</option>
+						</select>
+						<label class="active">Função<span id="role-error"></span></label>
+					</div>
+
+					{{#if isInRole 'God'}}
+					<div class="input-field col s12 m6 {{showHideMaster}}">
+						<select id="select-master-company">
+							<option value="" disabled selected>Compania...</option>
+							{{#each getMasterCompany}}
+							<option value="{{_id}}" {{selectedForMaster _id}}>{{name}}</option>
+							{{/each}}
+						</select>
+						<label class="active">Compania</label>
+					</div>
+					{{/if}}
+					<div class="input-field col s12 m6 {{showHideCompany}}">
+						<select id="select-company">
+							<option value="" disabled selected>Empresa...</option>
+							{{#each getCompany}}
+							<option value="{{_id}}" {{selectedForUser _id}}>{{name}}</option>
+							{{/each}}
+						</select>
+						<label class="active">Empresa</label>
+					</div>
+
+				</div>
+
+				<div class="divider"></div>
+
+				<div class="row space-form">
+					<button class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" type="submit" name="action">Salvar
+						<i class="mdi-content-save right"></i>
+					</button>
+					<a class="waves-effect waves-red btn-flat right modallbtn" href="user"><i class="material-icons right">cancel</i>Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>

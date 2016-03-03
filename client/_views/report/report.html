@@ -1,0 +1,195 @@
+<!--================================================================================
+@file         report.html
+@version      0.0.1
+@path         client/_views/report
+@description  Renderiza a página de Relatórios e Gráficos do sistema.
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="report">
+	{{#if isInRole 'God, SysAdm, Adm, Supervisor'}}
+
+	<div class="card mycard">
+		<div class="section">
+			<h5>Filtro de Relatórios</h5>
+			<div class="divider margin-bottom"></div>
+
+			<!-- START/Filtro do Relatório -->
+			<div class="row">
+				<div class="col s12">
+					<div class="card mycard">
+						<form id="reportForm">
+							<div class="row" style="margin-bottom: 0px">
+								<div class="col s12 m6">
+
+									<div class="row">
+										<div class="col s12 input-field">
+											<label class="active left">Máquina desejada:</label>
+											<select id="machine-selector">
+												<option value="" disabled selected>Máquina...</option>
+												{{#each getMachines}}
+												<option value="{{_id}}">{{name}}</option>
+												{{/each}}
+											</select>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col s12 input-field">
+											<label class="active left">Tipo de relatório:</label>
+											<select id="select-type-report">
+												<option value="" disabled selected>Tipo de Relatório...</option>
+												{{#if hideSelectType}}
+												{{#if isCompressor getMachineSelected.dashcode}}
+												<option value="all">Geral</option>
+												<option value="poweronoff">Estado de Funcionamento</option>
+												<option value="resume">Totalizadores Diários</option>
+												{{/if}}
+												{{#if isOtherMachine getMachineSelected.dashcode}}
+												<option value="all">Geral</option>
+												<option value="productivity">Produtividade</option>
+												<option value="poweronoff">Estado de Funcionamento</option>
+												<option value="resume">Totalizadores Diários</option>
+												{{/if}}
+												{{/if}}
+											</select>
+										</div>
+									</div>
+
+								</div>
+								<div class="col s12 m6">
+									<div class="row">
+									<div class="col s12">
+									</div>
+										<div class="input-field col s12 m4">
+											<i class="mdi-action-today prefix"></i>
+											<input id="start-date" type="text">
+											<label class="" for="first_name">Data Inicial</label>
+										</div>
+										<div class="input-field col s12 m6">
+											<i class="mdi-action-today prefix"></i>
+											<input id="end-date" type="text">
+											<label class="" for="first_name">Data Final</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col s12">
+											<a class="btn btn-small waves-effect light-blue darken-2 right modalrbtn" id="preview-report-button"><i class="material-icons left">library_books</i>Preview Relatório</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- END/Filtro do Relatório -->
+
+			<!-- START/Resultado do Relatório -->
+			{{#if reportView}}
+			<div class="row" id="resultpreviewreport">
+				<div class="col s12">
+					<div class="card mycard">
+
+						<div class="row">
+							<div class="col s12 m6">
+								<h5>Preview do Relatório</h5>
+							</div>
+							<div class="col s12 m6">
+								<a class="btn btn-small waves-effect waves-green light-green darken-4 right modalrbtn" id="exportCSV"><i class="material-icons left">library_books</i>CSV</a>
+								<a class="btn btn-small waves-effect waves-red red darken-3 right modallbtn"  id="exportPDF"><i class="material-icons left">picture_as_pdf</i>PDF</a>
+							</div>
+						</div>
+
+						<div id="thisPDF">
+							<div class="card mycard">
+								<div class="section card-content">
+									<div class="row">
+										<div class="col s12">
+											<h4 class="center"><b>{{getTypeReport}}</b></h4>
+											<div class="divider"></div>
+										</div>
+										<div class="col s6 left">
+											<h5>Máquina: <b>{{getMachine.name}}</b></h5>
+											<h6>Filtro: {{getFilterDate}}</h6>
+											<div class="divider"></div>
+										</div>
+<!-- 										<div class="col s3 right">
+											<div class="row">
+												<h6 class="center">Horímetro</h6>
+												<div class="divider"></div>
+												<div class="row top-dash-horimetro blue-grey-text darken-3">
+													<div class="col s12 m12 l10 offset-s3 offset-m1 offset-l2">
+														<i class="medium left material-icons">timer</i><h4>{{getHourCounter}}</h4>
+													</div>
+												</div>
+											</div>
+										</div> -->
+									</div>
+									<div class="row">
+										<div class="col s12">
+											{{#if reportIsAll}}
+											{{#if machineIsCompressor}}
+											<table id="data-table-report" class="striped responsive compact" cellspacing="0">
+												<thead>
+													<tr>
+														<th>Data</th>
+														<th>Temperatura</th>
+														<th>Pressão</th>
+													</tr>
+												</thead>
+												<tbody>
+													{{#each getMachineDataReport}}
+													<tr>
+														<td>{{formatDate datetimedata}}<br></td>
+														<td>{{Data.temp}} ºC</td>
+														<td>{{Data.pressure}} bar</td>
+													</tr>
+													{{/each}}
+												</tbody>
+											</table>
+											{{/if}}
+											{{#if machineIsCounterProduction}}
+											<table id="data-table-report" class="striped responsive compact" cellspacing="0">
+												<thead>
+													<tr>
+														<th>Data</th>
+														<th>Estado de Máquina</th>
+														<th>Velocidade p/h</th>
+														<th>Produção und</th>
+													</tr>
+												</thead>
+												<tbody>
+													{{#each getMachineDataReport}}
+													{{#each test this}}
+													<tr>
+														<!-- <td>{{formatDate [0]}}<br></td> -->
+														<td>{{[0]}} </td>
+														<td>{{[1]}} </td>
+														<td>{{[2]}} p/h</td>
+														<td>{{[3]}} und</td>
+													</tr>
+													{{/each}}
+													{{/each}}
+												</tbody>
+											</table>
+											{{/if}}
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			{{/if}}
+			<!-- END/Resultado do Relatório -->
+
+		</div>
+	</div>
+
+	{{/if}}
+</template>

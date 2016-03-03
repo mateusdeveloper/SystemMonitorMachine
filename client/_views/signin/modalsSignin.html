@@ -1,0 +1,31 @@
+<!--================================================================================
+@file         modaisSignin.html
+@version      0.0.1
+@path         client/_views/signin
+@description  Renderiza as modais de SignIn.
+@author       MateusCardoso
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="forgotPasswordModal">
+  <div class="center section">
+    <div class="modal-content">
+      <h5>Insira o <b>e-mail</b> do usuário para recuperar a senha!</h5>
+      <div class="divider"></div>
+      <div class="row">
+        <form id="forgot-password-form">
+          <div class="input-field col s10 offset-s1">
+            <i class="mdi-communication-email prefix"></i>
+            <input id="forgotmail" class="validate" type="email" required>
+            <label class="" for="email">Email</label>
+          </div>
+          <div class="row space-form">
+            <button class="btn btn-small waves-effect waves-light light-blue darken-2 right modalrbtn" type="submit" style="margin-bottom: 0px;">Confirmar<i class="mdi-content-save right"></i></button>
+            <a class="modal-action modal-close waves-effect waves-red btn-flat right modallbtn" style="margin-bottom: 0px;" id="forgotpassoword-close-button"><i class="material-icons left">close</i>Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>

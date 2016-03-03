@@ -1,0 +1,62 @@
+<!--=================================================================================================================
+@file         typeMachine.html
+@version      0.0.1
+@path         client/views/cpanel/machine
+@description  Renderiza os Tipos de Máquinas.
+@author       MateusDeveloper
+@contact      mateus.developer@gmail.com/mateus
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================================================= -->
+
+<template name="typeMachine">
+	{{#if isInRole 'God'}}
+	<div class="card mycard">
+		<div class="section">
+			<a class="tooltipped btn-floating btn-large waves-effect waves-light light-blue darken-2 right margin-bottom" href="formInsertTypeMachine" data-tooltip="Adicionar Tipo de Máquina"><i class="material-icons">add</i></a>
+			<h5>Lista de Tipos de Máquinas</h5>
+			<div class="divider"></div>
+			<table class="striped responsive compact" id="data-table-typemachine">
+				<thead>
+					<tr>
+						<th>Descrição</th>
+						<th>Código do Dashboard</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{{#each getMachineType}}
+					<tr>
+						<td>{{description}}</td>
+						<td>{{dashcode}}</td>
+						<td>
+							<a class="tooltipped waves-effect btn-flat btn-floating right update-typemachine-button" data-tooltip="Editar"><i class="mdi-editor-mode-edit myflatbtn"></i></a>
+							<a class="tooltipped waves-effect btn-flat btn-floating right modal-trigger delete-typemachine-button" data-tooltip="Deletar" data-target="deleteTypeMachine"><i class="mdi-action-delete myflatbtn"></i></a>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<div class="divider"></div>
+		</div>
+	</div>
+
+	<!-- MODAL DELETAR MACHINE -->
+	<div id="deleteTypeMachine" class="mymodal">
+		{{>deleteTypeMachineModal}}
+	</div>
+
+	{{else}}
+	<div class="row center">
+		<div class="col s12 m6 offset-m3 l6 offset-l3">
+			<div class="card">
+				<div class="card-content red white-text">
+					<h1 class="title center">ACESSO RESTRITO!</h1>
+					<div class="divider"></div>
+					<h5 class="title center">Não disponível para este usuário.</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</template>

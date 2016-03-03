@@ -1,0 +1,251 @@
+<!--================================================================================
+@file         dashboard.html
+@version      0.0.1
+@path         client/_views/dashboard
+@description  Renderiza a visão de dashboards do sistema.
+@author       MateusDeveloperi
+@contact      mateus.developer@gmail.com
+@copyright    Copyright Mateus Cardoso Nunes
+================================================================================ -->
+
+<template name="dashboard0">
+  {{#if isInRole 'SysAdm, Adm, Supervisor'}}
+  <div class="section section-graph">
+
+    <p><h5><b>{{getMachine.name}}</b> - <span class="{{printStatusColor getMachine.status}}">{{printStatusString getMachine.status}}</span></h5></p>
+    <div class="divider"></div>
+    <!--chart dashboard start-->
+    <div id="chart-dashboard">
+      <div class="row">
+        <div class="col s12 m12">
+          <div class="card">
+            <div class="card-move-up">
+              <div class="move-up blue lighten-2">
+                <div>
+                  <span class="chart-title white-text"></span>
+                </div>
+                <div class="row">
+                  <div class="col s12">
+                    <div class="trending-line-chart-wrapper">
+                      <canvas id="trending-line-chart" class="maps-size-dashboard"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PARTE DE BAIXO DO PRIMEIRO CARD -->
+            <div class="row">
+
+              <div class="col s12 m10 l3 offset-m1">
+                <div class="row">
+                  <h6 class="center">Horímetro</h6>
+                  <div class="divider"></div>
+                  <div class="row top-dash-horimetro blue-grey-text darken-3">
+                    <div class="col s12 m12 l10 offset-s3 offset-m1 offset-l2">
+                      <i class="medium left material-icons">timer</i><h4>{{getHourCounter}}</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col s12 m10 l4 offset-m1">
+                <div class="row">
+                  <h6 class="center">Resumo das Últimas 24h</h6>
+                  <div class="divider"></div>
+                  <div class="col s5 offset-s3 top-graph-dash-horimetro">
+                    <div id="doughnut-chart-wrapper">
+                      <canvas id="doughnut-chart" height="200"></canvas>
+                      <div class="doughnut-chart-status">
+                        <p class="ultra-small center-align"></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- GRAFICO ESTADO MAQUINA -->
+                  <div class="col s3">
+                    <ul class="doughnut-chart-legend">
+                      <li class="carga"><span class="legend-color"></span>Carga</li>
+                      <li class="alivio"><span class="legend-color"></span>Alívio</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m10 l5 offset-m1">
+                <div class="row">
+                  <h6 class="center">Utilização Semanal</h6>
+                  <div class="divider"></div>
+                  <div class="col s12 m10 offset-m1">
+                    <div class="trending-bar-chart-wrapper">
+                      <canvas id="trending-bar-chart" height="90"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--chart dashboard end-->
+  </div>
+
+
+  <!-- INICIO TABS -->
+  <div class="row">
+    <div class="col s12 m6 offset-m3 l6 offset-l3">
+      <ul class="tabs z-depth-1">
+        <li class="tab col s6 waves-effect"><a class="active blue-text text-darken-4" href="#historyTab">Histórico</a></li>
+        <li class="tab col s6 waves-effect"><a class="blue-text text-darken-4" href="#timelineTab">Timeline</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <!-- TAB TIMELINE -->
+    <div class="mycard">
+      <div id="timelineTab">
+        <a class="tooltipped btn-floating waves-effect waves-light btn-large light-blue darken-2 modal-trigger dont-scroll-me right"  data-target="insertTimelineEvent" data-tooltip="Adicionar Evento"><i class="material-icons left">add</i></a>
+        <div class="section mycard card-content timeline-scroll">
+          <div class="row">
+            <div class="col s12">
+              <div id="cd-timeline">
+                <div class="cd-container">
+                  <!-- BLOCO DINAMICO -->
+                  {{#each getMachineEvent}}
+                  <div class="cd-timeline-block">
+
+                    <div class="cd-timeline-img {{getColor this._idEventType}} valign-wrapper">
+                      <i class="tlresponsiveicon material-icons">{{getIcon _idEventType}}</i>
+                    </div>
+
+                    <div class="cd-timeline-content">
+                      <h5>{{name}}</h5>
+                      <h6>{{getUserName _idOperator}}:</h6>
+                      <div class="divider"></div>
+                      {{#if report}}
+                      <ul class="collection">
+                        <li class="collection-item">Horímero do dia:<span class="right">{{description.[0]}}</span></li>
+                        <li class="collection-item">% em Carga:<span class="right">{{description.[1]}}%</span></li>
+                        <li class="collection-item">Temperatura Máxima:<span class="right">{{description.[2]}}°C</span></li>
+                        <li class="collection-item">Pressão Máxima:<span class="right">{{description.[3]}} bar</span></li>
+                      </ul>
+                      {{else}}
+                      <p>{{description}}</p>
+                      {{/if}}
+                      <span class="cd-date">{{formatDateChart datetimeevent}}</span>
+                    </div>
+                  </div>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- HISTORICO -->
+      <div id="historyTab">
+        <a class="tooltipped btn-floating waves-effect waves-light btn-large light-blue darken-2 activator dont-scroll-me right" data-tooltip="Imprimir"><i class="material-icons left">print</i></a>
+        <div class="section card-content">
+          <div class="row">
+            <div id="mecaguei" class="col s12">
+              <table id="data-table-dashboard0" class="striped responsive compact" cellspacing="0">
+                <thead>
+                  <tr>
+                    <!-- <th>Status</th> -->
+                    <th>Horário</th>
+                    <th>Temperatura</th>
+                    <th>Pressão</th>
+                    <!-- <th>Nível do Óleo</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each getMachineLog}}
+                  <tr>
+                    <!-- <td>STATUS</td> -->
+                    <td>{{formatDate datetimedata}}<br></td>
+                    <td>{{lastOf HardwareSignals.InAnls.[0].InAnl0}} ºC</td>
+                    <td>{{lastOf HardwareSignals.InAnls.[1].InAnl1}} bar</td>
+                    <!-- <td>{{Data.oil}} %</td> -->
+                  </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Exportar Relatório<i class="material-icons right">close</i></span>
+      <div class="divider"></div>
+      <div class="row">
+        <form id="reportForm" class="col s10 offset-s1">
+          <h6 class="center section">FILTRO DO RELATÓRIO</h6>
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <i class="mdi-action-today prefix"></i>
+              <input id="start-date" type="text">
+              <label class="" for="first_name">Data Inicial</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <i class="mdi-action-today prefix"></i>
+              <input id="end-date" type="text">
+              <label class="" for="first_name">Data Final</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12 m6">
+              <i class="mdi-action-alarm-on prefix"></i>
+              <input id="start-time" type="text">
+              <label class="" for="first_name">Hora Inicial</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <i class="mdi-action-alarm-on prefix"></i>
+              <input id="end-time" type="text">
+              <label class="" for="first_name">Hora Final</label>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col s12">
+            <div class="divider"></div>
+            <a class="btn btn-small waves-effect waves-green light-green darken-4 right modalrbtn" id="exportCSV"><i class="material-icons left">library_books</i>CSV</a>
+            <a class="btn btn-small waves-effect waves-red red darken-3 right modallbtn"  id="exportPDF"><i class="material-icons left">picture_as_pdf</i>PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{else}}
+  <div class="row center">
+    <div class="col s12 m6 offset-m3 l6 offset-l3">
+      <div class="card">
+        <div class="card-content red white-text">
+          <h1 class="title center">ACESSO RESTRITO!</h1>
+          <div class="divider"></div>
+          <h5 class="title center">Não disponível para este usuário.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+
+
+  <!-- MODAL ADICIONAR TIMELINEEVENTS -->
+  <div id="insertTimelineEvent" class="mymodal">
+    {{>insertTimelineEventModal}}
+  </div>
+
+  <!-- MODAL CONFIRMAR ACTION -->
+  <div id="confirmAction" class="mymodal">
+    {{>confirmActionModal}}
+  </div>
+</template>

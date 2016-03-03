@@ -1,0 +1,27 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+chart:chart
+materialize:materialize@=0.97.0
+accounts-base
+accounts-password
+email
+momentjs:moment
+alanning:roles
+natestrauser:select2
+simple:rest
+jspdf:core
+iron:router
+copleykj:shower
+meteorhacks:kadira
+mrt:mask
+zuuk:stale-session
+harrison:papa-parse
+json
+peerlibrary:util
+rcy:nouislider
+jspdf:autotable
