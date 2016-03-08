@@ -1,3 +1,2 @@
 # SystemMonitorMachine
-Sistema para monitorar atividades de máquinas e equipamentos.
-
+#### Sistema de monitoramento de atividades em Màquinas e Equipamentos
