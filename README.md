@@ -14,7 +14,7 @@ Está disponível neste link [Sistem Monitor Machine](http://systemmonitormachin
 
 ## Requisitos do Projeto
 
-Este projeto foi desenvolvido sob framwork METEOR JS. Para rodar a estrutura do projeto se faz necessário a montagem de um servidor web rodando METEOR JS. Abaixo os links necessários para instalação e configuração de um servidor web com METEOR JS.
+Este projeto foi desenvolvido sob framwork METEOR JS. Para rodar a estrutura do projeto se faz necessário a montagem e configuração de um servidor web rodando METEOR JS. Abaixo os links necessários para instalação e configuração de um servidor web com METEOR JS.
 
 * [METEOR JS](https://www.meteor.com/install) - version: 1.1.0.3,
 * [MongoDB](https://docs.mongodb.org/manual/installation/) - version: 3.0.9
