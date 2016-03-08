@@ -8,8 +8,8 @@ Trata-se de um sistema supervisório [SCADA](https://pt.wikipedia.org/wiki/Siste
 
 Está disponível neste link [Sistem Monitor Machine](http://systemmonitormachine.meteor.com/) uma versão de testes para demonstração.
 
-**Usuário:** god@system.com
-**Password:** gorki
+- **Usuário:** god@system.com
+- **Password:** gorki
 
 
 ## Requisitos do Projeto
