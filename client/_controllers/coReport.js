@@ -297,7 +297,7 @@ Template.report.events({
 'click #exportPDF': function(event, template) {
 	var doc = new jsPDF();
 	Header = function () {
-		// doc.addImage('images/dpsystem.jpg', 'JPEG', 15, 40, 180, 180);
+		// doc.addImage('images/LogoHome.png', 'JPEG', 15, 40, 180, 180);
 		doc.line(200, 20, 10, 20);
 	}
 
