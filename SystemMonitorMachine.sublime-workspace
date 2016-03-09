@@ -1,0 +1,927 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lo",
+				"log (fn) [C]"
+			],
+			[
+				"user",
+				"userId	Meteor: this.userId"
+			],
+			[
+				"cons",
+				"console.log()"
+			],
+			[
+				"Sessi",
+				"Session.set	Meteor: Session.set(key, value)"
+			],
+			[
+				"Sess",
+				"Session.get	Meteor: Session.get(key)"
+			],
+			[
+				"else",
+				"else if()"
+			],
+			[
+				"true",
+				"true"
+			],
+			[
+				"selectedMac",
+				"selectedMachineObj"
+			],
+			[
+				"und",
+				"undefined"
+			],
+			[
+				"thisCompan",
+				"thisCompanyUser"
+			],
+			[
+				"le",
+				"length	String"
+			],
+			[
+				"myCompanies",
+				"myCompaniesId"
+			],
+			[
+				"ob",
+				"objDeviceUpdate (obj) [S]"
+			],
+			[
+				"alert",
+				"alert(${0:message})	Window"
+			],
+			[
+				"even",
+				"events	Meteor: Template.myTemplate.events(eventMap)"
+			],
+			[
+				"this",
+				"thisUser (obj) [C]"
+			],
+			[
+				"val",
+				"valueOf()	String"
+			],
+			[
+				"new",
+				"newCompany ([])  [C]"
+			],
+			[
+				"Meteor",
+				"Meteor.user	Meteor.user()"
+			],
+			[
+				"de",
+				"delay	.delay()"
+			],
+			[
+				"valu",
+				"valueRoles       (?)  [C]"
+			],
+			[
+				"Acc",
+				"Accounts.createUser	Meteor: Accounts.createUser(options, [callback])"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"cli",
+				"click	Event"
+			],
+			[
+				"aler",
+				"alert(${0:message})	Window"
+			],
+			[
+				"find",
+				"find	Meteor: this.find(selector)"
+			],
+			[
+				"function",
+				"new Function()	Function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "run.sh",
+			"settings":
+			{
+				"buffer_size": 715,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 342.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"sni",
+				"Snippet: input - image"
+			],
+			[
+				"id",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"vi",
+				"View: Toggle Menu"
+			],
+			[
+				"view",
+				"View: Toggle Menu"
+			],
+			[
+				"vie",
+				"View: Toggle Menu"
+			],
+			[
+				"iden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ide",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"I",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Ide",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Id",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"IDE",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"iDE",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"snippet titl",
+				"Snippet: <title>"
+			],
+			[
+				"meteor is",
+				"Snippet: Meteor {{#if}} {{else}}"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"v",
+				"View: Toggle Minimap"
+			],
+			[
+				"snippetmo",
+				"Snippet: Meteor: collection.findOne(selector, [options])"
+			],
+			[
+				"snippet inp",
+				"Snippet: input - password"
+			],
+			[
+				"snippet form",
+				"Snippet: <form>"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"{",
+				"Snippet: Meteor {{#each}}"
+			],
+			[
+				"{{",
+				"Snippet: Meteor {{#each}}"
+			],
+			[
+				"snippet mete",
+				"Snippet: Meteor {{#each}}"
+			],
+			[
+				"meteore",
+				"Snippet: Meteor {{#each}}"
+			],
+			[
+				"mete",
+				"Snippet: Meteor {{#if}} {{else}}"
+			],
+			[
+				"meteor e",
+				"Snippet: Meteor {{#each}}"
+			],
+			[
+				"meteor",
+				"Snippet: Meteor {{#if}} {{else}}"
+			],
+			[
+				"meteor ",
+				"Snippet: Meteor {{#each}}"
+			],
+			[
+				"snippet me",
+				"Snippet: Meteor {{#each}}"
+			],
+			[
+				"meteor temp",
+				"Snippet: Meteor: Template.myTemplate.preserve(selectors)"
+			],
+			[
+				"meteor te",
+				"Snippet: Meteor: Template.myTemplate.helpers(helpers)"
+			],
+			[
+				"cssM",
+				"Snippet: CSS - margin: 0;"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"header",
+				"Snippet: <header>"
+			],
+			[
+				"snippet temp",
+				"Snippet: Meteor Template Tag"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 539.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/developer/Workspace/SystemMonitorMachine"
+	],
+	"file_history":
+	[
+		"/home/developer/Workspace/SystemMonitorMachine/README.md",
+		"/home/developer/Desktop/Informações do README System Monitor Machine",
+		"/home/developer/Desktop/Informações do README System Monitor Machine - exemplo",
+		"/home/developer/Desktop/lista de usuários e configurações do DPSystem.js",
+		"/home/developer/Workspace/SystemMonitorMachine/client/_controllers/coReport.js",
+		"/home/developer/Workspace/SystemMonitorMachine/client/_views/_layout/footer.html",
+		"/home/developer/Workspace/SystemMonitorMachine/client/_views/signin/signin.html",
+		"/home/developer/Workspace/SystemMonitorMachine/client/_views/_layout/header.html",
+		"/home/developer/Workspace/SystemMonitorMachine/client/_views/header/modalsHeader.html",
+		"/home/developer/Workspace/SystemMonitorMachine/client/_views/main.html",
+		"/home/developer/Workspace/SystemMonitorMachine/public/images/LogoHeader.png",
+		"/home/developer/Workspace/SystemMonitorMachine/run.sh",
+		"/home/developer/Workspace/SystemMonitorMachine/server/rest.js",
+		"/home/developer/Workspace/SystemMonitorMachine/server/services.js",
+		"/home/developer/Workspace/SystemMonitorMachine/server/app-entry.js",
+		"/home/developer/Workspace/SystemMonitorMachine/run_SystemMonitorMachinev2.2.sh",
+		"/home/developer/Workspace/DPSystemV2/server/app-entry.js",
+		"/home/developer/Workspace/DPSystemV2/run_dpsystemv2.2.sh",
+		"/home/developer/Workspace/DPSystemV2/VERSIONRELEASE.txt",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coCompany.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coHome.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coMachineType.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coMasterCompany.js",
+		"/home/developer/Workspace/DPSystemV2/server/_models/_bin/signaturePublish.js",
+		"/home/developer/Workspace/DPSystemV2/server/services.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/_bin/handlebarsRegisterHelper.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/_bin/signatureSubscribe.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coDashboard0.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coDashboard1.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coDevices.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coHeader.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coLogin.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coMachines.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coNotifications.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coOperator.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coReport.js",
+		"/home/developer/Workspace/DPSystemV2/client/_controllers/coUsers.js",
+		"/home/developer/Workspace/DPSystemV2/client/_views/_layout/footer.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/_layout/header.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/_layout/layout.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/company/company.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/company/formsCompany.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/company/modalsCompany.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/device/device.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/device/formsDevice.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/device/modalsDevice.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/machine/formsMachine.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/machine/machine.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/machine/modalsMachine.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/machine/type/formsTypeMachine.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/machine/type/modalsTypeMachine.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/machine/type/typeMachine.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/mastercompany/formsMasterCompany.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/mastercompany/mastercompany.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/mastercompany/modalsMasterCompany.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/user/formsUser.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/user/modalsUser.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/administration/user/user.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/dashboard/dashboard0.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/dashboard/dashboard1.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/dashboard/modalsDashboard.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/header/modalsHeader.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/home/home.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/main.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/notifications/modalsNotification.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/notifications/notifications.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/operator/modalsOperator.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/operator/operator.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/report/report.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/signin/modalsSignin.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/signin/resetPassword.html",
+		"/home/developer/Workspace/DPSystemV2/client/_views/signin/signin.html",
+		"/home/developer/Workspace/DPSystemV2/client/lib/formValidationsCompany.js",
+		"/home/developer/Workspace/DPSystemV2/client/lib/formValidationsDevices.js",
+		"/home/developer/Workspace/DPSystemV2/client/lib/formValidationsMachines.js",
+		"/home/developer/Workspace/DPSystemV2/client/lib/formValidationsMasterCompany.js",
+		"/home/developer/Workspace/DPSystemV2/client/lib/formValidationsUsers.js",
+		"/home/developer/Workspace/DPSystemV2/client/lib/replaceFunctions.js",
+		"/home/developer/Workspace/DPSystemV2/client/stylesheet/custom-style-b.css",
+		"/home/developer/Workspace/DPSystemV2/client/stylesheet/custom-style-g.css",
+		"/home/developer/Workspace/DPSystemV2/client/stylesheet/custom-style-m.css",
+		"/home/developer/Workspace/DPSystemV2/collections/collections.js",
+		"/home/developer/Workspace/DPSystemV2/router/router.js",
+		"/home/developer/Workspace/DPSystemV2/server/_models/moReport.js",
+		"/home/developer/Workspace/DPSystemV2/server/_models/moUsers.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/2b9afc8ca48ad1edbc24e2f80e8ed7e13e1bf034.css",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/lib/formValidationsMasterCompany.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/lib/formValidationsMachines.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/lib/formValidationsDevices.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/lib/dailyreport.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/moMachines.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/lib/formValidationsUsers.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/lib/replaceFunctions.js",
+		"/home/developer/Workspace/DPSystemV2/server/_models/moMachines.js",
+		"/home/developer/Workspace/DPSystemV2/server/lib/dailyreport.js",
+		"/home/developer/Workspace/DPSystemV2/server/rest.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/moDevices.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/moCompany.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/_bin/signaturePublish.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/router/router.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/collections/collections.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/moMachineType.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/moMasterCompany.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/moOperators.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/moReport.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/moTimeLine.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/_models/moUsers.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/app-entry.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/lib/serverFunctions.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/rest.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/server/app/server/services.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/2b9afc8ca48ad1edbc24e2f80e8ed7e13e1bf034.css.map",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/_bin/handlebarsRegisterHelper.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/_bin/signatureSubscribe.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coCompany.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coDashboard0.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coDashboard1.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coDevices.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coHeader.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coHome.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coLogin.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coMachineType.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coMachines.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coMasterCompany.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coNotifications.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coOperator.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coReport.js",
+		"/home/developer/Workspace/DPSystemV2/.meteor/local/build/programs/web.browser/app/client/_controllers/coUsers.js"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 94.0,
+		"where_history":
+		[
+			"/home/developer/Workspace/SystemMonitorMachine",
+			"/home/developer/Workspace/DPSystemV2",
+			"/home/developer/Workspace/SolarMonitorV2/client/_controllers",
+			"/home/developer/Workspace/SolarMonitorV2",
+			"/home/developer/Workspace/SolarMonitorV2/client/_controllers",
+			"/home/developer/Workspace/SolarMonitorV2/server",
+			"/var/www/www",
+			"/home/developer/Workspace/SolarMonitorV2",
+			"/home/developer/Workspace/SolarMonitorV2/client/_controllers",
+			"/home/developer/Workspace/SolarMonitorV2",
+			"/home/developer/Workspace/DPSystemV2",
+			"/home/developer/Workspace/SolarMonitorV2/client/_controllers",
+			"/home/developer/Workspace/SolarMonitorV2",
+			"/home/developer/Workspace/SolarMonitorV2/server/_models",
+			"/home/developer/Workspace/SolarMonitorV2",
+			"/home/developer/Workspace/SolarMonitorV2/client/stylesheet",
+			"/home/developer/Workspace/SolarMonitorV2",
+			"/home/developer/Workspace/dp.system-v2.2/client",
+			"/home/developer/Workspace/dp.system-v2.2/client/_controllers",
+			"/home/developer/Workspace/dp.system-v2.2",
+			"/home/developer/Workspace/dp.system-v2.2/client",
+			"/home/developer/Workspace/dp.system-v2.2/server",
+			"/home/developer/Workspace/dp.system-v2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client/lib",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2/server",
+			"/home/developer/Workspace/dpsystemv2.2/client/_controllers",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2/client/_controllers",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/server",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2/server",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/server",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2/client/_views",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2/server",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/server",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/server",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client/_controllers",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client/_controllers",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client/stylesheet",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client/stylesheet",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2/client/_controllers",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2/client/_controllers",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client/stylesheet",
+			"/home/developer/Workspace/dpsystemv2.2/client",
+			"/home/developer/Workspace/dpsystemv2.2/client/_views",
+			"/home/developer/Workspace/dpsystemv2.2/client/stylesheet",
+			"/home/developer/Workspace/dpsystemv2.2/.meteor",
+			"/home/developer/Workspace/dpsystemv2.2/client/stylesheet",
+			"/home/developer/Workspace/dpsystemv2.2/client/_views",
+			"/home/developer/Workspace/dpsystemv2.2/client/stylesheet",
+			"/home/developer/Workspace/dpsystemv2.2",
+			"/home/developer/Workspace/dpsystemv2.2/client/_controllers",
+			"/home/developer/Workspace/hyosolar",
+			"/home/developer/Workspace/hyosolar/client/_controllers",
+			"/home/developer/Workspace/hyosolar/client/stylesheet",
+			"/home/developer/Workspace/hyosolar",
+			"/home/developer/Workspace/hyosolar/client",
+			"/home/developer/Workspace/hyosolar/client/_controllers",
+			"/home/developer/Workspace/hyosolar/client",
+			"/home/mateus/Workspace/_estudos/dpsystem/server",
+			"/home/mateus/Workspace/_estudos/dpsystem/public",
+			"/home/mateus/Workspace/_estudos/dpsystem/packages",
+			"/home/mateus/Workspace/_estudos/dpsystem/lib",
+			"/home/mateus/Workspace/_estudos/dpsystem/config",
+			"/home/mateus/Workspace/_estudos/dpsystem/collections",
+			"/home/mateus/Workspace/_estudos/dpsystem/client",
+			"/home/mateus/Workspace/_estudos/dpsystem",
+			"/home/mateus/Workspace/_estudos/dpsystem/client",
+			"/home/mateus/Workspace/_estudos/dpsystem",
+			"/home/mateus/Workspace/_estudos/dpsystem/client",
+			"/home/mateus/Workspace/_estudos/dpsystem/collections",
+			"/home/mateus/Workspace/_estudos/dpsystem/client",
+			"/home/mateus/Workspace/_estudos/dpsystem/collections",
+			"/home/mateus/Workspace/_estudos/dpsystem/server",
+			"/home/mateus/Workspace/_estudos/dpsystem/client",
+			"/home/mateus/Workspace/dpnorimac/client/lib/helpers",
+			"/home/mateus/Workspace/dpnorimac",
+			"/home/mateus/Workspace/_estudos/dpsystem",
+			"/home/mateus/Workspace/_estudos/dpsystem/client",
+			"/home/mateus/Workspace/_estudos/dpsystem",
+			"/home/mateus/Workspace/_estudos/dpsystem/client",
+			"/home/mateus/Workspace/dpnorimac/client/lib/events",
+			"/home/mateus/Workspace/_estudos/dpsystem/server",
+			"/home/mateus/Workspace/_estudos/dpsystem",
+			"/home/mateus/Workspace/dpnorimac/client/lib/events",
+			"/home/mateus/Workspace/dpnorimac",
+			"/home/mateus/Workspace/_estudos/dpsystem",
+			"/home/mateus/Workspace/_estudos/dpsystem/collections",
+			"/var/www/www",
+			"/home/mateus/Workspace/_estudos/dpsystem/client/views",
+			"//var/www/www/",
+			"//var/www/www/css"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Requirement",
+			"Node",
+			"dpsystem",
+			"dpSystem",
+			"LogoHome",
+			"dpsystem",
+			"dpsystem.png",
+			"// //",
+			"god@system",
+			"Hydrobytes",
+			"HydroBytes",
+			"DPSY",
+			"DPSystem",
+			"Guilherme",
+			"Mateus",
+			"Gabriel",
+			"hydrobytes",
+			"@hydrobytes",
+			"god@hydrobytes.com",
+			"HydroBytes",
+			"HydroBytes Technologies Corporation",
+			"Hydrobytes",
+			"\",\n",
+			"HydroBytes",
+			"HydroBytes Technologies Corporation Ltda.",
+			"HydroBytes",
+			"Hydro Bytes",
+			"HydroBytes",
+			"Marcos",
+			"Gabriel",
+			"Guilherme",
+			"GuilhermeBattist",
+			"Guilherme Battist",
+			"Guilherme",
+			"GuilhermeBattisti",
+			"g",
+			"Gabriel",
+			"Gabriel Ardigó",
+			"Gabriel",
+			"http://www.hydrobytes.com.br",
+			"Guilherme Battisti",
+			"Guilherme",
+			"GabrielArdigó",
+			"Gabriel",
+			"conso",
+			"Meteor.users",
+			"currentuser",
+			"currentUser",
+			"new Da",
+			"Date",
+			"Read More",
+			"database",
+			"mysql",
+			"bd",
+			"config",
+			"<a class=\"waves-effect waves-teal btn modal-trigger solar-background-color right-space\" data-tooltip=\"Alertas\" data-target=\"stationNotification\">Alertas</a>",
+			"var datetimedata = moment.utc",
+			"formatDateX",
+			"var datetimedata = moment.utc",
+			"var datetimedata = moment",
+			"var datetimedata",
+			"datetimedata",
+			"sendEmail",
+			"Samba",
+			".helper",
+			"get",
+			"resultFormatDate",
+			"UFS",
+			".format",
+			"$('select').material_select();",
+			"{\n",
+			"$('#datelog').click();",
+			"$('select').material_select();",
+			"	$('",
+			"$('select').material_select();",
+			"$('#datelog').click();",
+			"$('select').material_select();",
+			"#date",
+			"Sambaiba",
+			"$('select').material_select();",
+			"click",
+			"template",
+			"Sambaiba",
+			"<th>Data</th>",
+			"\"desc\"",
+			"UFCM",
+			"{sort: {datetimedata: -1}, limit:600}",
+			"limit:",
+			"limit",
+			"600",
+			"limit:40",
+			"limit:60",
+			"limit:50",
+			"dataArray",
+			"formatDate",
+			"Alerta de Estação",
+			"Alerta de Estação - Bateria",
+			"Alerta de Estação",
+			"Alerta da Estação",
+			"console.log",
+			"formataData",
+			"formatDate",
+			"Alerta da Estação ",
+			"Alerta da Estação",
+			"</b>",
+			"<b>",
+			"// console",
+			"console",
+			"/*Turbidez",
+			"stationSambaibaTurb",
+			"stationOrlandoMarques",
+			"/*Chuva*/",
+			"Chuva",
+			"stationGuanduRuth",
+			"stationSambaiba",
+			"GUANDU",
+			"UFC",
+			"2344862",
+			"4",
+			"xChannel4Array",
+			"4",
+			"updateChartSedimentsSambaibaTurb",
+			"updateChartRainGuanduRuth",
+			"batteryLimit",
+			"xChannelLimitMin",
+			"updateChart",
+			"updateChart()",
+			"-------------------------------------------------------------------------------------*/\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"god@system.com",
+			"Mateus Cardoso Nunes",
+			"MateusDeveloper",
+			"mateus.developer@gmail.com",
+			"MateusCardoso",
+			"SysAdm",
+			"MemoryCLP",
+			"datetime",
+			"Date().toLocaleString()"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "run.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 715,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								715,
+								715
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 27.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 116.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 98.0
+	},
+	"pinned_build_system": "",
+	"project": "SystemMonitorMachine.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"server/_models/moReport.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Workspace/SolarMonitorV2/SolarMonitorV2.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 253.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
