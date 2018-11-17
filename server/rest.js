@@ -65,7 +65,7 @@ Meteor.method("hardwareCommunications", function (cmd){
 						'timer': datetimedata,
 						'flag': 0,
 					},
-					"info": "Dispositivo de Aquisicao de dados HydroBytes",
+					"info": "Dispositivo de Aquisicao de Dados",
 					"status": 0,
 					"sysstatus": 3,
 				});

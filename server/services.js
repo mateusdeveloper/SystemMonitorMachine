@@ -199,7 +199,7 @@ if (Meteor.isServer) {
 
   if (Meteor.users.find().count() === 0){
 
-    var hydroCompany = MasterCompany.findOne({name: "MateusDeveloper Technologies Corporation"});
+    var company = MasterCompany.findOne({name: "MateusDeveloper Technologies Corporation"});
     var mCompanyA = MasterCompany.findOne({name: "Empresa Alpha"});
     var mCompanyB = MasterCompany.findOne({name: "Empresa Betha"});
     var company01A = Company.findOne({name: "Empresa 01 A"});
@@ -224,7 +224,7 @@ if (Meteor.isServer) {
       //Termina de setar os campos
       Meteor.users.update({_id:currentUser._id},{
         $set: {
-          "_idMasterCompany": hydroCompany._id,
+          "_idMasterCompany": company._id,
         }
       });
 
